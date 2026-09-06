@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>למטייל מול התוכנית שלנו | קוסטה ריקה</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;600;700;900&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ocean-deep: #0a3d31; --ocean: #116b4f; --teal: #2aa198;
+    --sand: #f7f3eb; --card: #fff; --border: #e2dacd;
+    --gold: #d99a26; --ink: #1c2d27; --ink-soft: #536b63;
+    --ok: #2e7d5b; --ok-bg: #eaf5ee; --warn: #b8791a; --warn-bg: #fcf4e4; --no: #b23a3a; --no-bg: #fbecec;
+    --radius: 16px; --shadow: 0 10px 28px rgba(10,61,49,0.08);
+  }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body { font-family:'Heebo',sans-serif; background:var(--sand); color:var(--ink); line-height:1.65; }
+  header { background:linear-gradient(155deg,var(--ocean-deep),var(--ocean) 60%,var(--teal) 120%); color:#fff; padding:40px 20px 50px; text-align:center; }
+  header h1 { font-size:clamp(1.6rem,4vw,2.4rem); font-weight:900; margin-bottom:6px; }
+  header p { color:#e5f5f0; font-weight:300; max-width:720px; margin:0 auto; }
+  header a { color:#fff; }
+  main { max-width:960px; margin:-20px auto 0; padding:0 16px 60px; }
+  h2 { font-size:1.3rem; font-weight:800; color:var(--ocean-deep); margin:34px 0 14px; display:flex; align-items:center; gap:10px; }
+  h2::after { content:""; flex:1; height:2px; background:linear-gradient(to left,var(--border),transparent); }
+
+  .legend { display:flex; flex-wrap:wrap; gap:8px; background:var(--card); border:1px solid var(--border); border-radius:var(--radius); padding:12px 16px; box-shadow:var(--shadow); font-size:0.88rem; }
+  .badge { display:inline-block; padding:2px 10px; border-radius:999px; font-size:0.8rem; font-weight:700; white-space:nowrap; }
+  .b-ok { background:var(--ok-bg); color:var(--ok); border:1px solid #c9e2d4; }
+  .b-part { background:var(--warn-bg); color:var(--warn); border:1px solid #f0dcb4; }
+  .b-no { background:var(--no-bg); color:var(--no); border:1px solid #f0c9c9; }
+
+  .tbl-wrap { overflow-x:auto; background:var(--card); border:1px solid var(--border); border-radius:var(--radius); box-shadow:var(--shadow); }
+  table { width:100%; border-collapse:collapse; font-size:0.9rem; min-width:620px; }
+  th, td { padding:10px 12px; text-align:right; border-bottom:1px solid var(--border); vertical-align:top; }
+  th { background:#f3f7f5; color:var(--ocean-deep); font-weight:700; }
+  tr:last-child td { border-bottom:none; }
+  td a { color:var(--ocean); font-weight:600; text-decoration:none; }
+
+  .card { background:var(--card); border:1px solid var(--border); border-radius:var(--radius); box-shadow:var(--shadow); padding:18px 20px; margin-bottom:16px; border-inline-start:5px solid var(--border); }
+  .card.ok { border-inline-start-color:var(--ok); }
+  .card.part { border-inline-start-color:var(--gold); }
+  .card.no { border-inline-start-color:var(--no); }
+  .card-head { display:flex; flex-wrap:wrap; align-items:center; gap:10px; margin-bottom:10px; }
+  .card-head h3 { font-size:1.08rem; font-weight:800; color:var(--ocean-deep); flex:1; min-width:200px; }
+  .card-head small { color:var(--ink-soft); font-weight:400; font-size:0.85rem; }
+  .quote { font-size:0.88rem; color:var(--ink-soft); background:#fdfbf7; border:1px dashed var(--border); border-radius:10px; padding:8px 12px; margin-bottom:12px; }
+  .qa { display:grid; grid-template-columns:120px 1fr; gap:6px 12px; font-size:0.92rem; }
+  .qa dt { font-weight:700; color:var(--ocean); }
+  .qa dd { margin:0; }
+  .verdict { margin-top:12px; padding:10px 14px; border-radius:10px; font-size:0.92rem; font-weight:600; }
+  .v-ok { background:var(--ok-bg); color:var(--ok); }
+  .v-part { background:var(--warn-bg); color:#7a4f0e; }
+  .v-no { background:var(--no-bg); color:var(--no); }
+  .v-add { background:#e8f4f3; color:var(--ocean-deep); border:1px solid #bfe0dc; }
+  ul.tips { list-style:none; display:grid; gap:8px; }
+  ul.tips li { background:var(--card); border:1px solid var(--border); border-radius:12px; padding:10px 14px; font-size:0.92rem; }
+  ul.tips li b { color:var(--ocean-deep); }
+  footer { text-align:center; color:var(--ink-soft); font-size:0.82rem; padding:20px; }
+  @media (max-width:600px) { .qa { grid-template-columns:1fr; } .qa dt { margin-top:6px; } }
+</style>
+</head>
+<body>
+
+<header>
+  <h1>🧭 המלצות "למטייל" מול התוכנית שלנו</h1>
+  <p>השוואה בין המאמר <a href="https://www.lametayel.co.il/articles/ewlnrw" target="_blank">"קוסטה ריקה: המדריך לגילאי 50+"</a> לבין המסלול המתוכנן שלנו (21.9–1.10.2026): מה כבר בפנים, מה שווה להוסיף ואיך.</p>
+</header>
+
+<main>
+
+  <h2>📊 סיכום מהיר</h2>
+  <div class="legend">
+    <span class="badge b-ok">✅ כבר בתוכנית</span>
+    <span class="badge b-part">🟡 חלקית / דומה</span>
+    <span class="badge b-no">❌ לא בתוכנית</span>
+    <span style="color:var(--ink-soft); margin-inline-start:auto;">12 פריטים · 6 בפנים · 2 חלקית · 4 חסרים (2 מהם מומלץ להוסיף)</span>
+  </div>
+  <br>
+  <div class="tbl-wrap">
+    <table>
+      <thead><tr><th>#</th><th>המלצת המאמר</th><th>סטטוס</th><th>שווה?</th><th>שורה תחתונה</th></tr></thead>
+      <tbody>
+        <tr><td>1</td><td><a href="#i1">שמורת מנואל אנטוניו</a></td><td><span class="badge b-ok">✅ בתוכנית</span></td><td>מאוד</td><td>יום 10 (30.9), כניסה 7:30 עם מדריך</td></tr>
+        <tr><td>2</td><td><a href="#i2">הפארק הלאומי טורטוגרו</a></td><td><span class="badge b-ok">✅ בתוכנית</span></td><td>מאוד</td><td>ימים 2–3, לילה כפול ב-Tortuga Lodge</td></tr>
+        <tr><td>3</td><td><a href="#i3">שמורת הר הגעש ארנאל</a></td><td><span class="badge b-ok">✅ בתוכנית</span></td><td>מאוד</td><td>ימים 4–6. אופציה: שביל הלבה 1968 בפארק הלאומי</td></tr>
+        <tr><td>4</td><td><a href="#i4">קאנופי במונטה ורדה</a></td><td><span class="badge b-part">🟡 דומה בארנאל</span></td><td>לא בטיול הזה</td><td>Sky Trek בארנאל מכסה. מונטה ורדה = יום+לילה נוספים</td></tr>
+        <tr><td>5</td><td><a href="#i5">גן הסחלבים בקרטגו (Lankester)</a></td><td><span class="badge b-no">❌ לא בתוכנית</span></td><td>נחמד, לא חובה</td><td>אפשר ביום 11 במקום/בנוסף לפואס</td></tr>
+        <tr><td>6</td><td><a href="#i6">שייט שקיעה בחוף הפסיפי</a></td><td><span class="badge b-part">🟡 יש שייט לווייתנים</span></td><td>בינוני</td><td>שקיעה מהצוק ב-La Cusinga נותנת אותו אפקט בחינם</td></tr>
+        <tr><td>7</td><td><a href="#i7">מעיינות חמים לעת ערב</a></td><td><span class="badge b-ok">✅ בתוכנית</span></td><td>מאוד</td><td>יום 4 בערב + בריכות תרמיות במלון</td></tr>
+        <tr><td>8</td><td><a href="#i8">סיור לילה בעקבות חיות</a></td><td><span class="badge b-no">❌ לא בתוכנית</span></td><td><b>כן, מומלץ להוסיף</b></td><td>ערב יום 5 (25.9) בארנאל, שעתיים, ~50$ לאדם</td></tr>
+        <tr><td>9</td><td><a href="#i9">סיור קקאו / שוקולד</a></td><td><span class="badge b-no">❌ לא בתוכנית</span></td><td><b>כן, מומלץ להוסיף</b></td><td>Tirimbina נמצאת בדיוק על הדרך ביום 4, או סיור בלה פורטונה</td></tr>
+        <tr><td>10</td><td><a href="#i10">צפייה בבקיעת צבי ים</a></td><td><span class="badge b-ok">✅ בתוכנית</span></td><td>מאוד</td><td>ליל 22.9 בטורטוגרו. נוסרה מיותרת</td></tr>
+        <tr><td>11</td><td><a href="#i11">יום בסן חוסה</a></td><td><span class="badge b-part">🟡 יום נחיתה רגוע</span></td><td>נמוך</td><td>לא שווה לוותר על מנוחה לפני היציאה ב-5:30</td></tr>
+        <tr><td>12</td><td><a href="#i12">איסוף רכב בלימון / 4x4</a></td><td><span class="badge b-ok">✅ 4x4 בתוכנית</span></td><td>—</td><td>איסוף בלה פורטונה עדיף על לימון</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h2>🏞️ חמישה דברים שאסור לפספס (לפי המאמר)</h2>
+
+  <div class="card ok" id="i1">
+    <div class="card-head"><h3>1. שמורת מנואל אנטוניו <small>Manuel Antonio National Park</small></h3><span class="badge b-ok">✅ כבר בתוכנית</span></div>
+    <div class="quote">"מפגש של אוקיינוס ויער גשם, מפרץ חולי ואוסף לא יתואר של מיני חיות ים, יבשה, אוויר, זוחלים, שרצים"</div>
+    <dl class="qa">
+      <dt>בתוכנית?</dt><dd>כן. יום 10 (30.9, יום רביעי): כניסה ב-7:30 עם מדריך טלסקופי, שבילים וחופים, ואז נסיעה לחוות הקפה.</dd>
+      <dt>שווה?</dt><dd>בהחלט. הפארק הכי פופולרי במדינה, ובספטמבר הרבה פחות עמוס.</dd>
+    </dl>
+    <div class="verdict v-ok">✔ מכוסה במלואו. רק לזכור: כרטיסים נרכשים מראש באתר SINAC (כבר ברשימת המשימות), והפארק סגור בימי שלישי.</div>
+  </div>
+
+  <div class="card ok" id="i2">
+    <div class="card-head"><h3>2. הפארק הלאומי טורטוגרו <small>Tortuguero</small></h3><span class="badge b-ok">✅ כבר בתוכנית</span></div>
+    <div class="quote">"שמורה מיוחדת המרושתת בתעלות מים... אחד האזורים היחידים בעולם שבהם תוכלו לצפות בצב ים ירוק נדיר"</div>
+    <dl class="qa">
+      <dt>בתוכנית?</dt><dd>כן, ובגדול: ימים 2–3 (22–24.9), שני לילות ב-Tortuga Lodge & Gardens, שיט בתעלות, ספארי שחר וסיור צבים לילי.</dd>
+      <dt>שווה?</dt><dd>זה לב הטיול. ספטמבר הוא שיא עונת ההטלה של הצב הירוק.</dd>
+    </dl>
+    <div class="verdict v-ok">✔ מכוסה במלואו, ואפילו יותר טוב מהמאמר (המאמר מציע 4 לילות, שניים מספיקים לגמרי).</div>
+  </div>
+
+  <div class="card ok" id="i3">
+    <div class="card-head"><h3>3. שמורת הר הגעש ארנאל <small>Arenal Volcano</small></h3><span class="badge b-ok">✅ כבר בתוכנית</span></div>
+    <div class="quote">"הר געש פעיל חלקית... השמורה שמקיפה את ההר עשירה במעיינות חמים, אגמים, מפלים ונוף עוצר נשימה"</div>
+    <dl class="qa">
+      <dt>בתוכנית?</dt><dd>כן. שלושה לילות (24–27.9): מעיינות חמים, גשרים תלויים Místico, מפל לה פורטונה, זיפליין, ומקלט Proyecto Asís.</dd>
+      <dt>מה חסר?</dt><dd>המאמר מזכיר שבילי הליכה בשמורה עצמה. אצלנו אין הליכה בפארק הלאומי ארנאל (שביל הלבה מ-1968, כשעה וחצי, נוף ישיר ללוע).</dd>
+      <dt>אפשר לשלב?</dt><dd>כן, בקלות: אחר הצהריים של יום 5 (25.9) אחרי המפל, או בוקר יום 7 לפני היציאה לפסיפיק. אופציונלי, לא חובה.</dd>
+    </dl>
+    <div class="verdict v-ok">✔ מכוסה. תוספת אפשרית: שביל הלבה 1968 אם יש כוח ומזג האוויר בהיר.</div>
+  </div>
+
+  <div class="card part" id="i4">
+    <div class="card-head"><h3>4. קאנופי במונטה ורדה <small>Monteverde Cloud Forest</small></h3><span class="badge b-part">🟡 חוויה דומה בארנאל</span></div>
+    <div class="quote">"הרכס המרכזי של מונטה ורדה הינו המקום האידאלי ביותר... טיול קאנופי (אומגה) בין צמרות העצים ביער העננים"</div>
+    <dl class="qa">
+      <dt>בתוכנית?</dt><dd>מונטה ורדה עצמה לא. אבל האומגה (Sky Trek, יום 6) והגשרים התלויים (Místico, יום 5) בארנאל נותנים בדיוק את החוויה הזו.</dd>
+      <dt>שווה?</dt><dd>מונטה ורדה יפה מאוד, אבל יער עננים = ערפל וגשם, במיוחד בספטמבר.</dd>
+      <dt>אפשר לשלב?</dt><dd>רק במחיר כבד: 3.5 שעות נסיעה מלה פורטונה (מסביב לאגם), לילה נוסף, ואז 5 שעות עד אוביטה. זה אומר לוותר על לילה בארנאל או באוביטה.</dd>
+    </dl>
+    <div class="verdict v-no">✘ לא מומלץ לטיול של 11 ימים. ארנאל מכסה את החוויה. מונטה ורדה שווה טיול נפרד או מסלול של 14+ ימים.</div>
+  </div>
+
+  <div class="card no" id="i5">
+    <div class="card-head"><h3>5. גן הסחלבים בקרטגו <small>Jardín Botánico Lankester, Cartago</small></h3><span class="badge b-no">❌ לא בתוכנית</span></div>
+    <div class="quote">"אחד הפארקים הגדולים בעולם, שמחזיקים את המגוון הגדול ביותר של מיני הסחלבים שמצויים בטבע"</div>
+    <dl class="qa">
+      <dt>בתוכנית?</dt><dd>לא. הכוונה היא לגן הבוטני Lankester של אוניברסיטת קוסטה ריקה, כ-1,000 מיני סחלבים, שעה עד שעה וחצי ביקור.</dd>
+      <dt>שווה?</dt><dd>נחמד ורגוע, במיוחד למי שאוהב צמחים. לא מהחוויות הבלתי נשכחות של המדינה. עונת הפריחה העיקרית היא פברואר–אפריל.</dd>
+      <dt>אפשר לשלב?</dt><dd>כן, ביום 11 (1.10). Lankester נמצא כשעה ורבע מ-Finca Rosa Blanca, בכיוון ההפוך מפואס. אם פואס מעונן או סגור (קורה הרבה), זו חלופה מצוינת. אם הטיסה מאוחרת בערב אפשר גם וגם, אבל זה יוצא יום צפוף.</dd>
+    </dl>
+    <div class="verdict v-part">◐ תוכנית גיבוי ליום האחרון: אם אין תצפית לפואס, נוסעים ל-Lankester במקום.</div>
+  </div>
+
+  <h2>🎯 חמישה דברים נוספים שכדאי (לפי המאמר)</h2>
+
+  <div class="card part" id="i6">
+    <div class="card-head"><h3>6. שייט שקיעה בחוף הפסיפי <small>Sunset cruise, Manuel Antonio</small></h3><span class="badge b-part">🟡 יש שייט, אין שקיעה</span></div>
+    <div class="quote">"מים כחולים עזים, דולפינים, ציפורי שיר, שקיעות מדהימות ויער ירוק עד – הכל בשייט נינוח עם קוקטייל"</div>
+    <dl class="qa">
+      <dt>בתוכנית?</dt><dd>יש שייט לווייתנים ודולפינים בבוקר יום 8 (28.9) במרינו באיינה. שייט שקיעה עם קוקטיילים אין.</dd>
+      <dt>שווה?</dt><dd>בינוני. שייט הבוקר שלנו הוא הגרסה הרצינית יותר (לווייתנים בשיא העונה). הלינה ב-La Cusinga היא על צוק מול האוקיינוס, כך שהשקיעות מובטחות בלי סירה.</dd>
+      <dt>אפשר לשלב?</dt><dd>אפשרי אבל לא נוח: הקטמרנים יוצאים מקפוס (שעה צפונה מאוביטה), ובערבים שלנו כבר יש Citrus ונסיעות. חלופה קרובה: שייט/קיאק שקיעה קצר מבאיה באיינה ביום 7 או 9 אחה"צ.</dd>
+    </dl>
+    <div class="verdict v-part">◐ לא הכרחי. אם רוצים משהו קליל: קיאק שקיעה מאוביטה ביום 9 לפני Citrus.</div>
+  </div>
+
+  <div class="card ok" id="i7">
+    <div class="card-head"><h3>7. מעיינות מים חמים לעת ערב <small>Arenal hot springs</small></h3><span class="badge b-ok">✅ כבר בתוכנית</span></div>
+    <div class="quote">"להיכנס לבריכת מים מינרליים טבעיים בטמפרטורה הנכונה... להחזיק ביד כוס משקה צבעוני וטעים"</div>
+    <dl class="qa">
+      <dt>בתוכנית?</dt><dd>כן. ערב יום 4 (24.9) במעיינות החמים, ובנוסף המלונות שנבחרו (Nayara / Tabacón) הם ריזורטים תרמיים עם בריכות חמות בשטח.</dd>
+    </dl>
+    <div class="verdict v-ok">✔ מכוסה, שלושה ערבים ברצף.</div>
+  </div>
+
+  <div class="card no" id="i8">
+    <div class="card-head"><h3>8. סיור ערב / שחר בעקבות בעלי חיים <small>Night wildlife walk</small></h3><span class="badge b-no">❌ לא בתוכנית</span></div>
+    <div class="quote">"היער מתעורר לחיים. קולות היער ופנסי העיניים... מדריך מיומן ידע להצביע בדיוק על החיה שאת קולה שמעתם"</div>
+    <dl class="qa">
+      <dt>בתוכנית?</dt><dd>לא בדיוק. יש סיור לילה לצבים בטורטוגרו (חוף, לא ג'ונגל) וספארי שחר בתעלות. הליכת לילה ביער עם פנסים, צפרדעי עץ אדומות-עיניים, נחשים ועכבישים, אין.</dd>
+      <dt>שווה?</dt><dd><b>כן.</b> זול (40–60$ לאדם), שעתיים, ואחת החוויות שילדים ומבוגרים זוכרים הכי הרבה. אזור ארנאל הוא מהטובים במדינה לזה.</dd>
+      <dt>אפשר לשלב?</dt><dd>בקלות. ערב יום 5 (25.9) פנוי: יוצאים ב-17:45, חוזרים ב-20:00 לארוחת ערב במלון. ספקים מומלצים ליד לה פורטונה: Arenal Oasis (סיור צפרדעים), Ecocentro Danaus, או Bogarín Trail. חלופה: הליכת לילה ב-Hacienda Barú ליד אוביטה ביום 7.</dd>
+    </dl>
+    <div class="verdict v-add">➕ מומלץ להוסיף לתוכנית: הליכת לילה בארנאל, ערב 25.9.</div>
+  </div>
+
+  <div class="card no" id="i9">
+    <div class="card-head"><h3>9. סיור קקאו או שוקולד <small>Tirimbina Reserve / La Fortuna</small></h3><span class="badge b-no">❌ לא בתוכנית</span></div>
+    <div class="quote">"מעדן מלכים, משקה מעורר, חוויה חושית... ולטעום מהמשובח ביותר שקיים בעולם במטע הקקאו שב-Tirimbina"</div>
+    <dl class="qa">
+      <dt>בתוכנית?</dt><dd>לא. יש סיור קפה ביום האחרון (Finca Rosa Blanca), אבל לא קקאו.</dd>
+      <dt>שווה?</dt><dd><b>כן.</b> חוויה קצרה (שעתיים), טעימה, מתאימה לצמחונים ולנגה, ומספרת סיפור על המדינה. סיור הקקאו של Tirimbina נחשב לטוב ביותר בקוסטה ריקה.</dd>
+      <dt>אפשר לשלב?</dt><dd>כן, ויש מזל גיאוגרפי: Tirimbina נמצאת ב-La Virgen de Sarapiquí, <b>בדיוק על הדרך</b> מרציף La Pavona ללה פורטונה ביום 4 (24.9). אם ההעברה היא פרטית (זו ממילא משימה פתוחה), מבקשים עצירה של שעתיים. אם השאטל משותף ולא עוצר: סיור שוקולד בלה פורטונה עצמה (Rainforest Chocolate Tour או North Fields Café) אחה"צ יום 5 או יום 6.</dd>
+    </dl>
+    <div class="verdict v-add">➕ מומלץ להוסיף: עצירה ב-Tirimbina ביום 4 בדרך לארנאל (לתאם עם ההעברה הפרטית). גיבוי: סיור שוקולד בלה פורטונה.</div>
+  </div>
+
+  <div class="card ok" id="i10">
+    <div class="card-head"><h3>10. צפייה בבקיעת צבי ים <small>Tortuguero / Nosara</small></h3><span class="badge b-ok">✅ כבר בתוכנית</span></div>
+    <div class="quote">"הבקיעה וההשבה לים מתקיימים רק בין יולי לאוקטובר. תוכלו לצפות בשמורת טורטוגרו... וגם בנוסרה"</div>
+    <dl class="qa">
+      <dt>בתוכנית?</dt><dd>כן. ליל 22.9 בטורטוגרו עם מדריך מורשה, בדיוק בחלון שהמאמר מציין. בספטמבר רואים גם הטלה (נקבות) וגם בקיעה (גורים) באותו חוף.</dd>
+      <dt>נוסרה?</dt><dd>לא רלוונטי. נוסרה בחוף הפסיפי הצפוני, 5+ שעות מכל נקודה במסלול, ומיועדת לצבי לפידוכלי (arribada), חוויה אחרת.</dd>
+    </dl>
+    <div class="verdict v-ok">✔ מכוסה. כל הטיול נבנה סביב התאריכים האלה.</div>
+  </div>
+
+  <h2>🗺️ מהמסלול לדוגמה במאמר (14 יום)</h2>
+
+  <div class="card part" id="i11">
+    <div class="card-head"><h3>11. יום היכרות עם סן חוסה <small>San José</small></h3><span class="badge b-part">🟡 יום נחיתה רגוע</span></div>
+    <dl class="qa">
+      <dt>בתוכנית?</dt><dd>יום 1 מוקדש לנחיתה, בריכה ושינה מוקדמת, בלי כניסה לעיר.</dd>
+      <dt>שווה?</dt><dd>לא במיוחד. סן חוסה נחשבת לעיר הפחות מעניינת במסלול, ואחרי טיסה ארוכה עם יציאה ב-5:30 למחרת, מנוחה עדיפה. אם בכל זאת רוצים טעימה: שוק מרקדו סנטרל והתיאטרון הלאומי, שעתיים.</dd>
+    </dl>
+    <div class="verdict v-part">◐ להשאיר כמו שזה. ההחלטה בתוכנית נכונה.</div>
+  </div>
+
+  <div class="card ok" id="i12">
+    <div class="card-head"><h3>12. איסוף רכב שכור 4x4 <small>Limón vs. La Fortuna</small></h3><span class="badge b-ok">✅ 4x4 בתוכנית</span></div>
+    <dl class="qa">
+      <dt>בתוכנית?</dt><dd>כן, השכרת 4x4 ל-7 ימים היא משימה פתוחה. המאמר מציע איסוף בלימון אחרי טורטוגרו. אצלנו איסוף בלה פורטונה.</dd>
+      <dt>מה עדיף?</dt><dd>לה פורטונה. לימון היא בכיוון ההפוך (מזרחה), ואיסוף שם מוסיף 4 שעות נהיגה ביום 4. השאטל הישיר La Pavona ← לה פורטונה שבתוכנית חוסך את זה. חברות שהמאמר מזכיר: Thrifty, Budget, Europcar, Wild Rider.</dd>
+    </dl>
+    <div class="verdict v-ok">✔ התוכנית שלנו טובה יותר מהצעת המאמר.</div>
+  </div>
+
+  <h2>💡 טיפים כלליים מהמאמר ומה זה אומר לנו</h2>
+  <ul class="tips">
+    <li><b>עונה:</b> המאמר ממליץ על דצמבר–אפריל (יובש). אנחנו בספטמבר בכוונה, בגלל הצבים והלווייתנים. המשמעות: לתכנן פעילויות חוץ לבוקר, גשם צפוי אחה"צ, ולהביא ציוד גשם קל.</li>
+    <li><b>מונטה ורדה, קרטגו, נוסרה, פוארטו לימון:</b> העיירות היחידות מהמאמר שלא במסלול. אף אחת מהן לא מצדיקה שינוי במסלול של 11 יום.</li>
+    <li><b>ניווט:</b> לא כל הכבישים סלולים, Waze עובד טוב במדינה. רלוונטי במיוחד לדרך לאוביטה ולמפלי נאוויאקה.</li>
+    <li><b>מטבע:</b> דולרים מתקבלים כמעט בכל מקום, קולון לשווקים ולקיוסקים. תקציב מוערך במאמר: 50–100$ ליום לזוג (לא כולל לינה).</li>
+    <li><b>קהילה יהודית:</b> בסן חוסה יש בתי כנסת, אוכל כשר ובית חב"ד. רלוונטי אם רוצים ליל שישי (25.9 אנחנו בארנאל, לא בסן חוסה).</li>
+    <li><b>הרוח של המאמר:</b> "היו רגועים... אתם בטיול – תהנו". התוכנית שלנו כבר משאירה אחה"צ חופשי כמעט בכל יום. ההוספות המומלצות (הליכת לילה ושוקולד) לא פוגעות בזה.</li>
+  </ul>
+
+  <h2>✏️ שינויים מוצעים לתוכנית</h2>
+  <ul class="tips">
+    <li><b>יום 4 (24.9):</b> לתאם עם ההעברה הפרטית עצירה של שעתיים ב-Tirimbina לסיור שוקולד. להוסיף למשימת "שאטל / העברה".</li>
+    <li><b>יום 5 (25.9) ערב:</b> להזמין הליכת לילה בארנאל (Arenal Oasis / Ecocentro Danaus), 17:45–20:00.</li>
+    <li><b>יום 5 או 7, אופציונלי:</b> שביל הלבה 1968 בפארק הלאומי ארנאל, אם השמיים בהירים.</li>
+    <li><b>יום 11 (1.10), גיבוי:</b> אם פואס סגור או מעונן, גן הסחלבים Lankester בקרטגו במקום.</li>
+  </ul>
+
+</main>
+
+<footer>נבנה מתוך המאמר בלמטייל וצילומי המסך שנשלחו · 6.9.2026</footer>
+</body>
+</html>
