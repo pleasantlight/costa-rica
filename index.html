@@ -159,6 +159,18 @@
   .sync-dot { width: 8px; height: 8px; border-radius: 50%; background: #999; }
   .sync-dot.active { background: #2e7d5b; }
 
+  /* Collapsible tasks panel */
+  details.tasks-panel > summary {
+    list-style: none; cursor: pointer; user-select: none;
+    display: flex; align-items: center; gap: 10px;
+    margin: 36px 0 16px;
+  }
+  details.tasks-panel > summary::-webkit-details-marker { display: none; }
+  details.tasks-panel > summary h2.sec-title { margin: 0; flex: 1; }
+  details.tasks-panel > summary .chev { flex-shrink: 0; }
+  details.tasks-panel[open] > summary .chev { transform: rotate(180deg); }
+  details.tasks-panel > summary .summary-counter { flex-shrink: 0; }
+
   .task-group { margin-bottom: 18px; }
   .task-group h4 {
     font-size: 0.95rem; font-weight: 700; color: var(--ocean-deep);
@@ -371,11 +383,15 @@
 
   <!-- ================= ACTION ITEMS / TASKS ================= -->
   <section id="tasks">
-    <h2 class="sec-title">✅ צ'ק-ליסט משימות ותפעול בזמן אמת</h2>
+    <details class="tasks-panel" id="tasks-panel">
+    <summary>
+      <h2 class="sec-title">✅ צ'ק-ליסט משימות ותפעול בזמן אמת</h2>
+      <span class="counter-badge summary-counter" id="task-counter">0 / 0 הושלמו</span>
+      <div class="chev">▼</div>
+    </summary>
     <div class="tasks-container">
       <div class="tasks-header">
         <div class="tasks-status-bar">
-          <span class="counter-badge" id="task-counter">0 / 0 הושלמו</span>
           <div class="sync-status">
             <span class="sync-dot" id="sync-dot"></span>
             <span id="sync-text">אחסון מקומי (Offline)</span>
@@ -429,6 +445,17 @@
             <div class="task-meta">27-30.9: בקתה עם נוף ישיר למפרץ הלווייתנים</div>
             <div class="task-links">
               <a class="task-link" href="https://www.lacusingalodge.com" target="_blank">אתר La Cusinga</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="task-item" id="item-marriott">
+          <input type="checkbox" onchange="toggleTask('marriott', this.checked)">
+          <div class="task-content">
+            <div class="task-text">הזמנת הלילה הראשון במריוט (Costa Rica Marriott Hacienda Belén)</div>
+            <div class="task-meta">21.9: לילה אחד ליד שדה התעופה SJO, אחרי הנחיתה בצהריים</div>
+            <div class="task-links">
+              <a class="task-link" href="https://www.marriott.com/en-us/hotels/sjocr-costa-rica-marriott-hotel-hacienda-belen/overview/" target="_blank">אתר Marriott</a>
             </div>
           </div>
         </div>
@@ -549,6 +576,7 @@
       </div>
 
     </div>
+    </details>
   </section>
 
   <!-- ================= DETAILED DAYS ================= -->
@@ -757,6 +785,7 @@
     'tortuga': false,
     'arenal-hotel': false,
     'uvita-hotel': false,
+    'marriott': false,
     'ends-hotels': false,
     'shuttle': false,
     'car': false,
