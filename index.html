@@ -381,7 +381,6 @@
             <span id="sync-text">אחסון מקומי (Offline)</span>
           </div>
         </div>
-        <button class="btn-cfg" onclick="openFirebaseModal()">⚙️ חיבור ל-Firebase האישי</button>
       </div>
 
       <!-- Task Group 1 -->
@@ -746,19 +745,6 @@
 
 </main>
 
-<!-- Firebase Config Modal -->
-<div class="modal-overlay" id="firebase-modal">
-  <div class="modal">
-    <h3>⚙️ חיבור ל-Firebase של היוזר שלך</h3>
-    <p>הדבק כאן את אובייקט ה-<code>firebaseConfig</code> מקונסול Firebase שלך (Realtime DB או Firestore) כדי לסנכרן משימות בין מכשירים:</p>
-    <textarea id="cfg-input" placeholder='{\n  "apiKey": "AIzaSy...",\n  "projectId": "my-trip",\n  ...\n}'></textarea>
-    <div class="modal-btns">
-      <button onclick="closeFirebaseModal()" style="background:#eee;">ביטול</button>
-      <button class="btn-save" onclick="saveFirebaseConfig()">שמור והתחבר</button>
-    </div>
-  </div>
-</div>
-
 <footer>
   🇨🇷 נבנה עבור נעם, אורית ונגה · קוסטה ריקה ספטמבר–אוקטובר 2026 · Pura Vida 🦥
 </footer>
@@ -784,12 +770,11 @@
 
   let db = null;
   const STORAGE_KEY = 'costa_rica_tasks_local';
-  const CFG_KEY = 'costa_rica_firebase_cfg';
 
   // Initialize
   window.addEventListener('DOMContentLoaded', () => {
     loadLocalState();
-    initFirebaseIfConfigured();
+    initFirebase();
     updateUI();
   });
 
@@ -834,12 +819,19 @@
   }
 
   // Firebase Setup
-  function initFirebaseIfConfigured() {
-    const rawCfg = localStorage.getItem(CFG_KEY);
-    if (!rawCfg) return;
-
+  function initFirebase() {
+    const firebaseConfig = {
+      apiKey: "AIzaSyAkPA7FTgbij-rvQWZwc8JiFD8d5oOr5V8",
+      authDomain: "costa-rica-1ccca.firebaseapp.com",
+      projectId: "costa-rica-1ccca",
+      storageBucket: "costa-rica-1ccca.firebasestorage.app",
+      messagingSenderId: "634558503645",
+      appId: "1:634558503645:web:c3de537c4385fa63f51934",
+      measurementId: "G-QT7C5BGL91"
+    };
+    
     try {
-      const cfg = JSON.parse(rawCfg);
+      const cfg = JSON.parse(firebaseConfig);
       if (!firebase.apps.length) {
         firebase.initializeApp(cfg);
       }
@@ -862,26 +854,6 @@
     }
   }
 
-  function openFirebaseModal() {
-    const rawCfg = localStorage.getItem(CFG_KEY) || '';
-    document.getElementById('cfg-input').value = rawCfg;
-    document.getElementById('firebase-modal').style.display = 'flex';
-  }
-
-  function closeFirebaseModal() {
-    document.getElementById('firebase-modal').style.display = 'none';
-  }
-
-  function saveFirebaseConfig() {
-    const val = document.getElementById('cfg-input').value.trim();
-    if (val) {
-      localStorage.setItem(CFG_KEY, val);
-      location.reload();
-    } else {
-      localStorage.removeItem(CFG_KEY);
-      location.reload();
-    }
-  }
 </script>
 
 </body>
