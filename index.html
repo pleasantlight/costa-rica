@@ -831,9 +831,8 @@
     };
     
     try {
-      const cfg = JSON.parse(firebaseConfig);
       if (!firebase.apps.length) {
-        firebase.initializeApp(cfg);
+        firebase.initializeApp(firebaseConfig);
       }
       db = firebase.firestore();
       
