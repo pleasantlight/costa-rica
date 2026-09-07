@@ -224,6 +224,19 @@
     width: 100%; height: 120px; font-family: monospace; font-size: 0.78rem;
     padding: 8px; border: 1px solid #ccc; border-radius: 8px; margin-bottom: 12px; direction: ltr;
   }
+  .modal .fld { display: block; font-size: 0.85rem; font-weight: 600; color: var(--ink-soft); margin-bottom: 10px; }
+  .modal .fld input, .modal .fld select, .modal .tm-meta {
+    display: block; width: 100%; margin-top: 4px; padding: 8px 10px; border: 1px solid var(--sand-border); border-radius: 8px;
+    font-family: inherit; font-size: 0.92rem; color: var(--ink); background: #fff;
+  }
+  .modal .tm-meta { height: 70px; direction: rtl; font-family: inherit; font-size: 0.9rem; }
+  .task-actions { display: flex; flex-direction: column; gap: 4px; flex-shrink: 0; opacity: 0.45; transition: opacity 0.15s; }
+  .task-item:hover .task-actions { opacity: 1; }
+  .task-actions button {
+    background: none; border: 1px solid transparent; border-radius: 6px; cursor: pointer; font-size: 0.85rem; padding: 2px 5px; line-height: 1;
+  }
+  .task-actions button:hover { background: #fff; border-color: var(--sand-border); }
+  .task-actions button.confirm { background: #fbecec; border-color: #f0c9c9; color: #b23a3a; font-size: 0.72rem; font-weight: 700; }
   .modal-btns { display: flex; justify-content: flex-end; gap: 8px; }
   .modal-btns button {
     padding: 8px 16px; border-radius: 8px; border: none; cursor: pointer; font-family: inherit; font-size: 0.88rem;
@@ -467,6 +480,7 @@
             <span id="sync-text">אחסון מקומי (Offline)</span>
           </div>
         </div>
+        <button class="btn-cfg" onclick="openTaskModal()">➕ משימה חדשה</button>
       </div>
 
       <!-- Task Group 1 -->
@@ -476,8 +490,8 @@
         <div class="task-item" id="item-flights">
           <input type="checkbox" onchange="toggleTask('flights', this.checked)">
           <div class="task-content">
-            <div class="task-text">טיסות בינלאומיות / המשך (SJO)</div>
-            <div class="task-meta">נחיתה 21.9 בצהריים, המראה 1.10 בערב ל-3 נוסעים</div>
+            <div class="task-text">טיסות (ארה"ב + קוסטה ריקה)</div>
+            <div class="task-meta">✔ הוזמנו, ~$3,000 מהכיס. נחיתה ב-SJO 21.9 בצהריים, המראה 1.10 בערב</div>
             <div class="task-links">
               <a class="task-link" href="https://www.google.com/travel/flights" target="_blank">Google Flights</a>
             </div>
@@ -488,7 +502,7 @@
           <input type="checkbox" onchange="toggleTask('tortuga', this.checked)">
           <div class="task-content">
             <div class="task-text">חבילת 2 לילות בטורטוגרו (Tortuga Lodge & Gardens)</div>
-            <div class="task-meta">✔ הוזמן 6.9: Miss Perla King + Miss Evelyn, Full Experience NR, $3,010. נותר: מייל ללודג' על הסעה מהמריוט ל-Caño Blanco, סיור הטלה ($100 לאדם), בקיעה ($60), שריון סיורים כלולים, ציון פסקטריאנית</div>
+            <div class="task-meta">✔ הוזמן 6.9: Miss Perla King + Miss Evelyn, Full Experience NR, $3,010 + $30 דמי שימור במקום</div>
             <div class="task-links">
               <a class="task-link" href="https://reservations.tortugalodge.com/book/dates-of-stay?checkin=2026-09-22&checkout=2026-09-24&adults=3" target="_blank">הזמנה ישירה</a>
               <a class="task-link" href="https://www.tortugalodge.com" target="_blank">אתר Tortuga Lodge</a>
@@ -512,7 +526,7 @@
           <input type="checkbox" onchange="toggleTask('kelja-followup', this.checked)">
           <div class="task-content">
             <div class="task-text">לענות ל-Fabian מ-Keljá ב-WhatsApp</div>
-            <div class="task-meta">לשאול: הבנייה הסמוכה הסתיימה? מסירת רכב שכור בווילה? הצעת מחיר להסעה פרטית Caño Blanco → Keljá ב-24.9 עם עצירה ב-Tirimbina? כרטיסים ל-Tabacón / Ecotermales דרכם? מטבח מאובזר (קפה, מחבת)? מספר WhatsApp</div>
+            <div class="task-meta">לשאול: הבנייה הסמוכה הסתיימה? מסירת ה-Land Cruiser של Alamo בווילה, יש חניה? הצעת מחיר להסעה פרטית Caño Blanco → Keljá ב-24.9 עם עצירה ב-Tirimbina? כרטיסים ל-Tabacón / Ecotermales דרכם? מטבח מאובזר (קפה, מחבת)? מספר WhatsApp</div>
           </div>
         </div>
 
@@ -528,36 +542,67 @@
           </div>
         </div>
 
+        <div class="task-item" id="item-first-night">
+          <input type="checkbox" onchange="toggleTask('first-night', this.checked)">
+          <div class="task-content">
+            <div class="task-text">לילה ראשון 21.9 בסן חוסה</div>
+            <div class="task-meta">ממתין להצעת Böëna על סוויטה משפחתית ב-Grano de Oro (~$350–390, כולל הסעה לרציף). חלופות עם קינג + ספה נפתחת: Courtyard SJO / Hampton SJO (~$150–200)</div>
+            <div class="task-links">
+              <a class="task-link" href="https://www.hotelgranodeoro.com" target="_blank">Grano de Oro</a>
+              <a class="task-link" href="https://www.booking.com/hotel/cr/courtyard-by-marriott-san-jose-airport-alajuela.html" target="_blank">Courtyard SJO</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="task-item" id="item-turtle-tours">
+          <input type="checkbox" onchange="toggleTask('turtle-tours', this.checked)">
+          <div class="task-content">
+            <div class="task-text">סיורי צבים בטורטוגרו: הטלה (ליל 22.9) ובקיעה (בוקר 23.9)</div>
+            <div class="task-meta">$100 + $60 לאדם, לא כלולים בחבילה. התבקשו במייל ל-Böëna יחד עם הסיורים הכלולים (שיט שחר 23.9, כפר 22.9). ממתין לאישור</div>
+          </div>
+        </div>
+
         <div class="task-item" id="item-uvita-hotel">
           <input type="checkbox" onchange="toggleTask('uvita-hotel', this.checked)">
           <div class="task-content">
             <div class="task-text">3 לילות באוביטה (La Cusinga Eco Lodge)</div>
-            <div class="task-meta">27-30.9: בקתה עם נוף ישיר למפרץ הלווייתנים</div>
+            <div class="task-meta">27-30.9: לפני ההזמנה לוודא חדר עם קינג + מיטה נפרדת לנגה (החדרים הרגילים: 2 מיטות זוגיות). אם אין, לחפש חלופה באוביטה/אוחוצ'אל. ~$680–950 ל-3 לילות</div>
             <div class="task-links">
               <a class="task-link" href="https://www.lacusingalodge.com" target="_blank">אתר La Cusinga</a>
             </div>
-          </div>
-        </div>
-
-        <div class="task-item" id="item-marriott">
-          <input type="checkbox" onchange="toggleTask('marriott', this.checked)">
+         <div class="task-item" id="item-rosablanca">
+          <input type="checkbox" onchange="toggleTask('rosablanca', this.checked)">
           <div class="task-content">
-            <div class="task-text">הזמנת הלילה הראשון במריוט (Costa Rica Marriott Hacienda Belén)</div>
-            <div class="task-meta">21.9: לילה אחד ליד שדה התעופה SJO, אחרי הנחיתה בצהריים</div>
+            <div class="task-text">לילה אחרון 30.9: Finca Rosa Blanca</div>
+            <div class="task-meta">Junior Suite (קינג + מיטה נוספת) ~$400–440, להזמין ישירות. באותה הזמנה: סיור קפה 1.10 בבוקר ($40 לאדם) ושולחן ב-El Tigre Vestido לערב 30.9</div>
             <div class="task-links">
-              <a class="task-link" href="https://www.marriott.com/en-us/hotels/sjocr-costa-rica-marriott-hotel-hacienda-belen/overview/" target="_blank">אתר Marriott</a>
+              <a class="task-link" href="https://reservations.orbebooking.com/Search/Init/Q4KxO/en" target="_blank">הזמנה ישירה</a>
             </div>
           </div>
         </div>
 
-        <div class="task-item" id="item-ends-hotels">
-          <input type="checkbox" onchange="toggleTask('ends-hotels', this.checked)">
+        <div class="task-item" id="item-us-nights">
+          <input type="checkbox" onchange="toggleTask('us-nights', this.checked)">
           <div class="task-content">
-            <div class="task-text">לינות קצוות (לילה ראשון ליד השדה + לילה אחרון בחווה)</div>
-            <div class="task-meta">21.9 ליד SJO + לילה 30.9 בחוות הקפה Finca Rosa Blanca</div>
-            <div class="task-links">
-              <a class="task-link" href="https://fincarosablanca.com" target="_blank">אתר Finca Rosa Blanca</a>
-            </div>
+            <div class="task-text">ארה"ב: 4 לילות נוספים, 2 חדרים</div>
+            <div class="task-meta">היעד תלוי במשפחה המורחבת. הערכה $1,200–1,600</div>
+          </div>
+        </div>
+
+        <div class="task-item" id="item-insurance">
+          <input type="checkbox" onchange="toggleTask('insurance', this.checked)">
+          <div class="task-content">
+            <div class="task-text">ביטוח נסיעות: לוודא שהפוליסה של Google מכסה גם את קוסטה ריקה</div>
+            <div class="task-meta">רפואי בחו"ל, זיפליין ושייט, וכיסוי לכבודה. אם מכסה רק ארה"ב: פוליסה ישראלית ל-11 ימים ~$100–150 לשלושה</div>
+          </div>
+        </div>
+
+         </div>
+        </div>
+
+          </div>
+        </div>
+
           </div>
         </div>
       </div>
@@ -569,8 +614,8 @@
         <div class="task-item" id="item-sj-transfer">
           <input type="checkbox" onchange="toggleTask('sj-transfer', this.checked)">
           <div class="task-content">
-            <div class="task-text">הסעה מהמריוט לרציף Caño Blanco (22.9, לסירה של 10:30)</div>
-            <div class="task-meta">~3–3.5 שעות, יציאה 6:30–7:00. עדיפות להצעה של הלודג' (מתואם עם הסירה). חלופה: ואן פרטי ~$245–260</div>
+            <div class="task-text">הסעה מהמלון בסן חוסה לרציף Caño Blanco (22.9, לסירה של 10:30)</div>
+            <div class="task-meta">~3–3.5 שעות, יציאה 6:30–7:00. התבקשה הצעה מ-Böëna (מתואם עם הסירה). חלופה: ואן פרטי ~$245–260</div>
             <div class="task-links">
               <a class="task-link" href="https://www.tortugalodge.com/how-to-get-there/" target="_blank">הגעה ל-Tortuga Lodge</a>
             </div>
@@ -581,7 +626,7 @@
           <input type="checkbox" onchange="toggleTask('shuttle', this.checked)">
           <div class="task-content">
             <div class="task-text">שאטל / העברה מרציף טורטוגרו ללה פורטונה (24.9)</div>
-            <div class="task-meta">ואן פרטי ~$323 (מאפשר עצירה ב-Tirimbina) או שאטל משותף Caribe Shuttle $65 לאדם. ⚠️ הסירה של Tortuga Lodge מגיעה לרציף Caño Blanco, לא La Pavona. לוודא נקודת איסוף</div>
+            <div class="task-meta">מרציף Caño Blanco (סירה מגיעה 10:00) לווילה Keljá, עם עצירה של שעתיים ב-Tirimbina. הצעות מחיר התבקשו מ-Böëna ומצוות Keljá. חלופות: ואן פרטי ~$323, שאטל משותף Caribe $65 לאדם (בלי עצירה)</div>
             <div class="task-links">
               <a class="task-link" href="https://www.caribeshuttle.com/tortuguero-to-arenal-la-fortuna" target="_blank">Caribe Shuttle</a>
               <a class="task-link" href="https://www.tortugalodge.com/how-to-get-there/" target="_blank">הגעה ל-Tortuga Lodge</a>
@@ -597,7 +642,26 @@
             <div class="task-links">
               <a class="task-link" href="https://www.alamocostarica.com" target="_blank">Alamo Costa Rica</a>
             </div>
+         <div class="task-item" id="item-idp">
+          <input type="checkbox" onchange="toggleTask('idp', this.checked)">
+          <div class="task-content">
+            <div class="task-text">רישיון נהיגה בינלאומי (ממסי)</div>
+            <div class="task-meta">לא חובה לרישיון ישראלי אבל מונע ויכוח בדלפק. כמה עשרות שקלים, שני הנהגים</div>
+            <div class="task-links">
+              <a class="task-link" href="https://www.memsi.co.il" target="_blank">ממסי</a>
+            </div>
           </div>
+        </div>
+
+        <div class="task-item" id="item-avis">
+          <input type="checkbox" onchange="toggleTask('avis', this.checked)">
+          <div class="task-content">
+            <div class="task-text">Avis ארה"ב: 2 השכרות, לוודא פרטים לפני הטיסה</div>
+            <div class="task-meta">1) תקרת ה-TPL הכלולה. 2) ביטול דמי נהג נוסף ($91) לבת זוג, לפי התנאים. 3) שההזמנה של ה-CT5 באותו קוד תעריף עם LDW ו-TPL כלולים. 4) לבקש לא-EV אם לא רוצים טעינה</div>
+          </div>
+        </div>
+
+         </div>
         </div>
       </div>
 
@@ -609,7 +673,7 @@
           <input type="checkbox" onchange="toggleTask('whales', this.checked)">
           <div class="task-content">
             <div class="task-text">שייט לווייתנים גבנוניים באוביטה (בוקר 28.9)</div>
-            <div class="task-meta">שייט של כ-3 שעות בפארק מרינו באיינה (שיא העונה)</div>
+            <div class="task-meta">$80–85 לאדם, Bahía Aventuras / Ballena Tour, כולל כניסה לפארק. באותו יום: לבדוק טבלת גאות להליכה על זנב הלווייתן בשפל</div>
             <div class="task-links">
               <a class="task-link" href="https://www.bahiaaventuras.com" target="_blank">Bahía Aventuras</a>
             </div>
@@ -620,7 +684,7 @@
           <input type="checkbox" onchange="toggleTask('asis', this.checked)">
           <div class="task-content">
             <div class="task-text">מקלט חיות הבר Proyecto Asís (שבת 26.9 אחה"צ)</div>
-            <div class="task-meta">סיור מודרך והצלת חיות בר בארנאל (חובה לשריין מראש)</div>
+            <div class="task-meta">$40 לאדם / $60 עם התנדבות, 8:30 או 13:00, חובה לשריין מראש</div>
             <div class="task-links">
               <a class="task-link" href="https://www.institutoasis.com" target="_blank">Proyecto Asís Official</a>
             </div>
@@ -631,7 +695,7 @@
           <input type="checkbox" onchange="toggleTask('zipline', this.checked)">
           <div class="task-content">
             <div class="task-text">גשרים תלויים וזיפליין מעל הג'ונגל בארנאל</div>
-            <div class="task-meta">Místico Hanging Bridges (בוקר 25.9) ו-Sky Trek Zipline</div>
+            <div class="task-meta">Sky Trek 26.9 בוקר, $93 לאדם, קוד EARLYBIRD 10% בהזמנה 15+ יום מראש. Místico 25.9 בוקר, $36–50, אפשר גם בלי הזמנה</div>
             <div class="task-links">
               <a class="task-link" href="https://www.misticopark.com" target="_blank">Místico Park</a>
               <a class="task-link" href="https://skyadventures.travel/arenallimited" target="_blank">Sky Adventures</a>
@@ -643,7 +707,7 @@
           <input type="checkbox" onchange="toggleTask('chocolate', this.checked)">
           <div class="task-content">
             <div class="task-text">סיור שוקולד ב-Tirimbina בדרך לארנאל (24.9)</div>
-            <div class="task-meta">לתאם עצירה של שעתיים עם ההעברה הפרטית מלה פבונה. גיבוי: Rainforest Chocolate Tour בלה פורטונה</div>
+            <div class="task-meta">$42 לאדם, לתאם עצירה של שעתיים עם ההסעה מ-Caño Blanco. גיבוי: Rainforest Chocolate Tour בלה פורטונה ($32)</div>
             <div class="task-links">
               <a class="task-link" href="https://www.tirimbina.org" target="_blank">Tirimbina</a>
               <a class="task-link" href="https://www.rainforestchocolatetour.com" target="_blank">Rainforest Chocolate Tour</a>
@@ -655,7 +719,7 @@
           <input type="checkbox" onchange="toggleTask('night-walk', this.checked)">
           <div class="task-content">
             <div class="task-text">הליכת לילה בג'ונגל בארנאל (ערב 25.9)</div>
-            <div class="task-meta">17:45–20:00, צפרדעי עץ ובעלי חיים ליליים עם מדריך. Arenal Oasis / Ecocentro Danaus</div>
+            <div class="task-meta">17:45–20:00, $56 לאדם ב-Arenal Oasis (ברכב שלנו) או Ecocentro Danaus. צפרדעי עץ ובעלי חיים ליליים עם מדריך</div>
             <div class="task-links">
               <a class="task-link" href="https://www.arenaloasis.com" target="_blank">Arenal Oasis</a>
               <a class="task-link" href="https://www.ecocentrodanaus.com" target="_blank">Ecocentro Danaus</a>
@@ -667,7 +731,7 @@
           <input type="checkbox" onchange="toggleTask('nauyaca', this.checked)">
           <div class="task-content">
             <div class="task-text">מפלי נאוויאקה (Nauyaca Waterfalls, 29.9)</div>
-            <div class="task-meta">כרטיסי כניסה להליכה ושחייה בבריכת המפל</div>
+            <div class="task-meta">$10 לאדם בהליכה (12 ק"מ) או $32 בטנדר 4x4, בלי הזמנה מראש להליכה</div>
             <div class="task-links">
               <a class="task-link" href="https://nauyacawaterfallscostarica.com" target="_blank">Nauyaca Official</a>
             </div>
@@ -682,8 +746,8 @@
         <div class="task-item" id="item-sinac">
           <input type="checkbox" onchange="toggleTask('sinac', this.checked)">
           <div class="task-content">
-            <div class="task-text">כרטיסי SINAC: מנואל אנטוניו (30.9) והר געש פואס (1.10)</div>
-            <div class="task-meta">הזמנת חלון כניסה נקוב באתר רשות הפארקים הלאומית</div>
+            <div class="task-text">מנואל אנטוניו (30.9) והר געש פואס (1.10)</div>
+            <div class="task-meta">מנואל אנטוניו: סיור מודרך 7:30 עם טלסקופ, $59 לאדם כולל כניסה (או כרטיס SINAC $18 + מדריך). פואס: רק ב-SINAC, חלון של שעה, נפתח ~4 שבועות מראש, $17. גיבוי לפואס: גן Lankester</div>
             <div class="task-links">
               <a class="task-link" href="https://serviciosenlinea.sinac.go.cr" target="_blank">פורטל SINAC הרשמי</a>
             </div>
@@ -694,7 +758,7 @@
           <input type="checkbox" onchange="toggleTask('dining', this.checked)">
           <div class="task-content">
             <div class="task-text">שריון מקום במסעדות שף מבוקשות</div>
-            <div class="task-meta">Don Rufino (ארנאל, 26.9), Citrus (אוחוצ'אל, 29.9)</div>
+            <div class="task-meta">Don Rufino (לה פורטונה, שבת 26.9, OpenTable), Citrus (אוחוצ'אל, שלישי 29.9, WhatsApp), El Tigre Vestido (30.9, 24 שעות מראש, עם הזמנת Rosa Blanca)</div>
             <div class="task-links">
               <a class="task-link" href="https://donrufino.com" target="_blank">Don Rufino</a>
               <a class="task-link" href="https://www.citrusrestaurante.com" target="_blank">Citrus Restaurant</a>
@@ -1463,6 +1527,21 @@
 
 </main>
 
+<!-- Task add/edit modal -->
+<div class="modal-overlay" id="task-modal">
+  <div class="modal">
+    <h3 id="task-modal-title">משימה חדשה</h3>
+    <label class="fld">כותרת<input type="text" id="tm-text" maxlength="140" placeholder="למשל: להזמין סיור צבים"></label>
+    <label class="fld">פרטים (לא חובה)<textarea id="tm-meta" class="tm-meta" maxlength="400" placeholder="תאריך, מחיר, הערות"></textarea></label>
+    <label class="fld">קישור (לא חובה)<input type="url" id="tm-link" placeholder="https://" dir="ltr"></label>
+    <label class="fld">קבוצה<select id="tm-group"></select></label>
+    <div class="modal-btns">
+      <button onclick="closeTaskModal()" style="background:#eee;">ביטול</button>
+      <button class="btn-save" onclick="saveTaskFromModal()">שמירה</button>
+    </div>
+  </div>
+</div>
+
 <footer>
   🇨🇷 נבנה עבור נעם, אורית ונגה · קוסטה ריקה ספטמבר–אוקטובר 2026 · Pura Vida 🦥
 </footer>
@@ -1477,8 +1556,13 @@
     'kelja-followup': false,
     'hot-springs': false,
     'uvita-hotel': false,
-    'marriott': false,
-    'ends-hotels': false,
+    'first-night': false,
+    'turtle-tours': false,
+    'rosablanca': false,
+    'us-nights': false,
+    'insurance': false,
+    'idp': false,
+    'avis': false,
     'sj-transfer': false,
     'shuttle': false,
     'car': false,
@@ -1494,14 +1578,140 @@
 
   let db = null;
   const STORAGE_KEY = 'costa_rica_tasks_local';
+  const META_KEY = 'costa_rica_tasks_meta';
+  // tasksMeta: { [id]: { text, meta, link, group, custom } | { deleted: true } }
+  let tasksMeta = {};
 
   // Initialize
   window.addEventListener('DOMContentLoaded', () => {
     loadLocalState();
     indexTaskOrigins();
+    document.querySelectorAll('.task-item').forEach(addTaskActions);
+    applyTasksMeta();
     initFirebase();
     updateUI();
   });
+
+  // ---- Add / edit / delete tasks ----
+  function groupList() { return [...document.querySelectorAll('.task-group')]; }
+
+  function addTaskActions(el) {
+    if (el.querySelector('.task-actions')) return;
+    const id = el.id.replace(/^item-/, '');
+    const box = document.createElement('div');
+    box.className = 'task-actions';
+    box.innerHTML = `<button type="button" title="עריכה" onclick="openTaskModal('${id}')">✏️</button>` +
+                    `<button type="button" title="מחיקה" onclick="deleteTask('${id}', this)">🗑️</button>`;
+    el.appendChild(box);
+  }
+
+  function buildTaskEl(id, m) {
+    const el = document.createElement('div');
+    el.className = 'task-item'; el.id = `item-${id}`;
+    el.innerHTML = `<input type="checkbox" onchange="toggleTask('${id}', this.checked)">` +
+      `<div class="task-content"><div class="task-text"></div><div class="task-meta"></div><div class="task-links"></div></div>`;
+    return el;
+  }
+
+  function applyTaskText(el, m) {
+    if (m.text !== undefined) el.querySelector('.task-text').textContent = m.text;
+    if (m.meta !== undefined) { const md = el.querySelector('.task-meta'); if (md) md.textContent = m.meta; md && (md.hidden = !m.meta); }
+    if (m.link !== undefined) {
+      let links = el.querySelector('.task-links');
+      if (!links) { links = document.createElement('div'); links.className = 'task-links'; el.querySelector('.task-content').appendChild(links); }
+      const custom = links.querySelector('a[data-custom]');
+      if (m.link) {
+        const a = custom || document.createElement('a');
+        a.className = 'task-link'; a.target = '_blank'; a.dataset.custom = '1'; a.href = m.link;
+        a.textContent = m.link.replace(/^https?:\/\//, '').split('/')[0];
+        if (!custom) links.appendChild(a);
+      } else if (custom) custom.remove();
+      links.hidden = !links.querySelector('a');
+    }
+  }
+
+  function applyTasksMeta() {
+    const groups = groupList();
+    for (const [id, m] of Object.entries(tasksMeta)) {
+      let el = document.getElementById(`item-${id}`);
+      if (m.deleted) {
+        if (el) { taskOrigin.delete(el); el.remove(); }
+        delete tasksState[id];
+        continue;
+      }
+      if (!el) {
+        el = buildTaskEl(id, m);
+        const g = groups[Math.min(m.group || 0, groups.length - 1)];
+        g.appendChild(el);
+        taskOrigin.set(el, { group: g, index: 1000 + (m.order || 0) });
+        addTaskActions(el);
+      } else if (m.group !== undefined && groups[m.group] && taskOrigin.get(el) && taskOrigin.get(el).group !== groups[m.group]) {
+        taskOrigin.set(el, { group: groups[m.group], index: 1000 + (m.order || 0) });
+      }
+      applyTaskText(el, m);
+      if (!(id in tasksState)) tasksState[id] = false;
+    }
+  }
+
+  function loadMeta() {
+    try { const raw = localStorage.getItem(META_KEY); if (raw) tasksMeta = Object.assign(tasksMeta, JSON.parse(raw)); } catch (e) {}
+  }
+  function saveMeta() {
+    localStorage.setItem(META_KEY, JSON.stringify(tasksMeta));
+    if (db) db.collection('trip_planning').doc('tasks_meta').set(tasksMeta, { merge: true }).catch(err => console.error('Firestore meta sync error:', err));
+  }
+
+  let editingId = null;
+  function openTaskModal(id) {
+    editingId = id || null;
+    const sel = document.getElementById('tm-group');
+    sel.innerHTML = groupList().map((g, i) => `<option value="${i}">${g.querySelector('h4').textContent}</option>`).join('');
+    const el = id ? document.getElementById(`item-${id}`) : null;
+    document.getElementById('task-modal-title').textContent = id ? 'עריכת משימה' : 'משימה חדשה';
+    document.getElementById('tm-text').value = el ? el.querySelector('.task-text').textContent : '';
+    document.getElementById('tm-meta').value = el && el.querySelector('.task-meta') ? el.querySelector('.task-meta').textContent : '';
+    const customLink = el ? el.querySelector('.task-links a[data-custom]') : null;
+    document.getElementById('tm-link').value = customLink ? customLink.href : '';
+    const origin = el ? taskOrigin.get(el) : null;
+    sel.value = origin ? groupList().indexOf(origin.group) : 0;
+    document.getElementById('task-modal').style.display = 'flex';
+    setTimeout(() => document.getElementById('tm-text').focus(), 50);
+  }
+  function closeTaskModal() { document.getElementById('task-modal').style.display = 'none'; editingId = null; }
+
+  function saveTaskFromModal() {
+    const text = document.getElementById('tm-text').value.trim();
+    if (!text) { document.getElementById('tm-text').focus(); return; }
+    const meta = document.getElementById('tm-meta').value.trim();
+    const link = document.getElementById('tm-link').value.trim();
+    const group = parseInt(document.getElementById('tm-group').value, 10) || 0;
+    let id = editingId;
+    if (!id) {
+      id = 'c' + Date.now().toString(36);
+      tasksMeta[id] = { text, meta, link, group, custom: true, order: Date.now() };
+      tasksState[id] = false;
+    } else {
+      const prev = tasksMeta[id] || {};
+      tasksMeta[id] = Object.assign({}, prev, { text, meta, link, group });
+    }
+    saveMeta();
+    applyTasksMeta();
+    closeTaskModal();
+    saveLocalState();
+    if (db) db.collection('trip_planning').doc('tasks').set(tasksState, { merge: true }).catch(() => {});
+  }
+
+  function deleteTask(id, btn) {
+    if (!btn.classList.contains('confirm')) {
+      btn.classList.add('confirm'); btn.textContent = 'למחוק?';
+      setTimeout(() => { btn.classList.remove('confirm'); btn.textContent = '🗑️'; }, 3000);
+      return;
+    }
+    tasksMeta[id] = { deleted: true };
+    saveMeta();
+    applyTasksMeta();
+    saveLocalState();
+  }
 
   // Remember each task's original group and position so incomplete tasks return to place
   const taskOrigin = new Map();
@@ -1550,6 +1760,7 @@
     if (saved) {
       try { tasksState = Object.assign(tasksState, JSON.parse(saved)); } catch(e){}
     }
+    loadMeta();
   }
 
   function saveLocalState() {
@@ -1558,19 +1769,16 @@
   }
 
   function updateUI() {
-    let total = Object.keys(tasksState).length;
+    let total = 0;
     let completed = 0;
-
-    for (const [id, done] of Object.entries(tasksState)) {
-      const el = document.getElementById(`item-${id}`);
-      if (el) {
-        const chk = el.querySelector('input[type="checkbox"]');
-        if (chk) chk.checked = done;
-        if (done) el.classList.add('completed');
-        else el.classList.remove('completed');
-      }
-      if (done) completed++;
-    }
+    document.querySelectorAll('.task-item').forEach(el => {
+      const id = el.id.replace(/^item-/, '');
+      const done = !!tasksState[id];
+      const chk = el.querySelector('input[type="checkbox"]');
+      if (chk) chk.checked = done;
+      el.classList.toggle('completed', done);
+      total++; if (done) completed++;
+    });
 
     document.getElementById('task-counter').textContent = `${completed} / ${total} הושלמו`;
     layoutTasks();
@@ -1612,9 +1820,18 @@
       db.collection('trip_planning').doc('tasks').onSnapshot(doc => {
         if (doc.exists) {
           tasksState = Object.assign(tasksState, doc.data());
+          applyTasksMeta();
           saveLocalState();
         }
       }, err => console.log("Firebase sync warning:", err));
+      db.collection('trip_planning').doc('tasks_meta').onSnapshot(doc => {
+        if (doc.exists) {
+          tasksMeta = Object.assign(tasksMeta, doc.data());
+          localStorage.setItem(META_KEY, JSON.stringify(tasksMeta));
+          applyTasksMeta();
+          updateUI();
+        }
+      }, err => console.log("Firebase meta sync warning:", err));
 
     } catch (e) {
       console.warn("Invalid Firebase config:", e);
