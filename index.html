@@ -172,6 +172,16 @@
   details.tasks-panel > summary .summary-counter { flex-shrink: 0; }
 
   .task-group { margin-bottom: 18px; }
+  details.done-tasks { border-top: 1px dashed var(--sand-border); padding-top: 10px; margin-top: 6px; }
+  details.done-tasks > summary {
+    list-style: none; cursor: pointer; user-select: none; font-size: 0.95rem; font-weight: 700; color: var(--ink-soft);
+    display: flex; align-items: center; gap: 8px; padding: 4px 0 8px;
+  }
+  details.done-tasks > summary::-webkit-details-marker { display: none; }
+  details.done-tasks > summary::after { content: "▼"; font-size: 0.7rem; margin-inline-start: auto; transition: transform 0.2s; }
+  details.done-tasks[open] > summary::after { transform: rotate(180deg); }
+  .done-badge { background: var(--ok); color: #fff; padding: 1px 9px; border-radius: 999px; font-size: 0.8rem; }
+  details.done-tasks .task-item { opacity: 0.8; }
   .task-group h4 {
     font-size: 0.95rem; font-weight: 700; color: var(--ocean-deep);
     margin-bottom: 8px; display: flex; align-items: center; gap: 6px;
@@ -692,6 +702,11 @@
           </div>
         </div>
       </div>
+
+      <details class="done-tasks" id="done-tasks" hidden>
+        <summary>✔ הושלמו <span class="done-badge" id="done-count">0</span></summary>
+        <div id="done-list"></div>
+      </details>
 
     </div>
     </details>
@@ -1483,9 +1498,40 @@
   // Initialize
   window.addEventListener('DOMContentLoaded', () => {
     loadLocalState();
+    indexTaskOrigins();
     initFirebase();
     updateUI();
   });
+
+  // Remember each task's original group and position so incomplete tasks return to place
+  const taskOrigin = new Map();
+  function indexTaskOrigins() {
+    document.querySelectorAll('.task-group').forEach(g => {
+      [...g.querySelectorAll('.task-item')].forEach((el, i) => taskOrigin.set(el, { group: g, index: i }));
+    });
+  }
+
+  // Move completed tasks into the collapsed "done" section, keep the rest in original order
+  function layoutTasks() {
+    const doneList = document.getElementById('done-list');
+    const doneBox = document.getElementById('done-tasks');
+    if (!doneList || !doneBox) return;
+    const byGroup = new Map();
+    taskOrigin.forEach((o, el) => {
+      if (!byGroup.has(o.group)) byGroup.set(o.group, []);
+      byGroup.get(o.group).push({ el, i: o.index });
+    });
+    let done = 0;
+    byGroup.forEach((arr, g) => {
+      arr.sort((a, b) => a.i - b.i).forEach(({ el }) => {
+        if (el.classList.contains('completed')) { doneList.appendChild(el); done++; }
+        else g.appendChild(el);
+      });
+      g.hidden = !g.querySelector('.task-item');
+    });
+    document.getElementById('done-count').textContent = done;
+    doneBox.hidden = done === 0;
+  }
 
   // Open a collapsed <details> when navigating to an anchor inside it
   function openAnchorTarget() {
@@ -1527,6 +1573,7 @@
     }
 
     document.getElementById('task-counter').textContent = `${completed} / ${total} הושלמו`;
+    layoutTasks();
   }
 
   function toggleTask(id, isChecked) {
