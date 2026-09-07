@@ -275,6 +275,18 @@
   .btn-link:hover { background: var(--ocean); color: #fff; }
 
 
+  /* ================= BLOCKS ================= */
+  .block-opts { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 12px; margin-top: 4px; }
+  .block-opts .inner-box { margin-top: 8px; }
+  .block-opts ul { padding-inline-start: 18px; font-size: 0.9rem; }
+  .block-opts li { margin: 4px 0; }
+  .block-opts a { color: var(--ocean); font-weight: 600; }
+  .chip { display: inline-block; font-size: 0.72rem; font-weight: 700; padding: 1px 7px; border-radius: 6px; background: #eaf5f2; color: var(--teal); vertical-align: middle; white-space: nowrap; }
+  .chip.book { background: var(--gold-soft); color: #8a5a10; }
+  .status { display: inline-block; font-size: 0.75rem; font-weight: 700; padding: 1px 9px; border-radius: 999px; }
+  .status.ok { background: #eaf5ee; color: var(--ok); }
+  .status.wait { background: var(--gold-soft); color: #8a5a10; }
+
   /* ================= PLACES (HOTELS & RESTAURANTS) ================= */
   .sec-note { font-size: 0.88rem; color: var(--ink-soft); margin: -6px 0 14px; }
   .sub-title { font-size: 1.05rem; font-weight: 800; color: var(--ocean-deep); margin: 18px 0 10px; }
@@ -376,7 +388,7 @@
   <p class="sub">21 בספטמבר עד 1 באוקטובר 2026 · 11 ימים בשיא עונת הצבים והלווייתנים</p>
   <div class="pills">
     <span class="pill">🐢 שיא הטלת צבים בטורטוגרו</span>
-    <span class="pill">🌋 ארנאל: מעיינות וגשרים</span>
+    <span class="pill">🌋 ארנאל: וילה פרטית, גשרים ומעיינות</span>
     <span class="pill">🐋 לווייתנים גבנוניים באוביטה</span>
     <span class="pill">🥾 טרקים ושחייה במפלים</span>
   </div>
@@ -389,75 +401,40 @@
     <h2 class="sec-title">🗺️ ציר זמן מהיר (Scrollable)</h2>
     <div class="timeline-container">
       <div class="timeline-header">
-        <span>👈 גררו אופקית לצפייה בימי הטיול ולחצו למעבר ישיר</span>
-        <span style="color:var(--ocean); font-weight:700;">11 ימים</span>
+        <span>👈 גררו אופקית לצפייה בבלוקים ולחצו למעבר ישיר</span>
+        <span style="color:var(--ocean); font-weight:700;">11 ימים · 5 בלוקים</span>
       </div>
       <div class="timeline-scroll">
         
-        <a class="timeline-card" href="#day1">
-          <div class="t-top"><span class="t-day">יום 1</span><span class="t-date">21.9 · ב'</span></div>
-          <div class="t-title">נחיתה ב-SJO ואקלום רגוע</div>
-          <div class="t-hotel">🏨 לינה: Costa Rica Marriott / Hampton SJO</div>
+
+        <a class="timeline-card" href="#block1">
+          <div class="t-top"><span class="t-day">לילה 1</span><span class="t-date">21.9 · ב'</span></div>
+          <div class="t-title">🛬 סן חוסה: נחיתה ולילה ראשון</div>
+          <div class="t-hotel">⏳ לינה: ממתין להצעה (Grano de Oro)</div>
         </a>
 
-        <a class="timeline-card" href="#day2">
-          <div class="t-top"><span class="t-day">יום 2</span><span class="t-date">22.9 · ג'</span></div>
-          <div class="t-title">שיט לג'ונגל וסיור לילה לצבים</div>
-          <div class="t-hotel">🏨 לינה: Tortuga Lodge & Gardens</div>
+        <a class="timeline-card" href="#block2">
+          <div class="t-top"><span class="t-day">2 לילות</span><span class="t-date">22–24.9</span></div>
+          <div class="t-title">🐢 טורטוגרו: צבים, תעלות וג'ונגל</div>
+          <div class="t-hotel">✔ Tortuga Lodge &amp; Gardens</div>
         </a>
 
-        <a class="timeline-card" href="#day3">
-          <div class="t-top"><span class="t-day">יום 3</span><span class="t-date">23.9 · ד'</span></div>
-          <div class="t-title">ספארי שחר בתעלות ושבילי ג'ונגל</div>
-          <div class="t-hotel">🏨 לינה: Tortuga Lodge & Gardens</div>
+        <a class="timeline-card" href="#block3">
+          <div class="t-top"><span class="t-day">3 לילות</span><span class="t-date">24–27.9</span></div>
+          <div class="t-title">🌋 ארנאל: גשרים, אומגות ומעיינות</div>
+          <div class="t-hotel">✔ Arenal Keljá, וילה פרטית</div>
         </a>
 
-        <a class="timeline-card" href="#day4">
-          <div class="t-top"><span class="t-day">יום 4</span><span class="t-date">24.9 · ה'</span></div>
-          <div class="t-title">מעבר לארנאל וערב מעיינות חמים</div>
-          <div class="t-hotel">🏨 לינה: Nayara Gardens / Tabacón</div>
+        <a class="timeline-card" href="#block4">
+          <div class="t-top"><span class="t-day">3 לילות</span><span class="t-date">27–30.9</span></div>
+          <div class="t-title">🐋 אוביטה: לווייתנים ומפלים</div>
+          <div class="t-hotel">⏳ La Cusinga Eco Lodge (לבדוק מיטות)</div>
         </a>
 
-        <a class="timeline-card" href="#day5">
-          <div class="t-top"><span class="t-day">יום 5</span><span class="t-date">25.9 · ו'</span></div>
-          <div class="t-title">גשרים תלויים ומפל לה פורטונה</div>
-          <div class="t-hotel">🏨 לינה: Nayara Gardens / Tabacón</div>
-        </a>
-
-        <a class="timeline-card" href="#day6">
-          <div class="t-top"><span class="t-day">יום 6</span><span class="t-date">26.9 · ש'</span></div>
-          <div class="t-title">זיפליין בצמרות ומקלט Proyecto Asís</div>
-          <div class="t-hotel">🏨 לינה: Nayara Gardens / Tabacón</div>
-        </a>
-
-        <a class="timeline-card" href="#day7">
-          <div class="t-top"><span class="t-day">יום 7</span><span class="t-date">27.9 · א'</span></div>
-          <div class="t-title">ירידה לפסיפיק עם עצירת תנינים</div>
-          <div class="t-hotel">🏨 לינה: La Cusinga Eco Lodge</div>
-        </a>
-
-        <a class="timeline-card" href="#day8">
-          <div class="t-top"><span class="t-day">יום 8</span><span class="t-date">28.9 · ב'</span></div>
-          <div class="t-title">שייט לווייתנים וזנב הלווייתן בשפל</div>
-          <div class="t-hotel">🏨 לינה: La Cusinga Eco Lodge</div>
-        </a>
-
-        <a class="timeline-card" href="#day9">
-          <div class="t-top"><span class="t-day">יום 9</span><span class="t-date">29.9 · ג'</span></div>
-          <div class="t-title">מפלי נאוויאקה וערב קולינרי באוחוצ'אל</div>
-          <div class="t-hotel">🏨 לינה: La Cusinga Eco Lodge</div>
-        </a>
-
-        <a class="timeline-card" href="#day10">
-          <div class="t-top"><span class="t-day">יום 10</span><span class="t-date">30.9 · ד'</span></div>
-          <div class="t-title">מנואל אנטוניו ולינת בוטיק בחווה</div>
-          <div class="t-hotel">🏨 לינה: Finca Rosa Blanca Farm</div>
-        </a>
-
-        <a class="timeline-card" href="#day11">
-          <div class="t-top"><span class="t-day">יום 11</span><span class="t-date">1.10 · ה'</span></div>
-          <div class="t-title">סיור קפה, לוע הר געש פואס והמראה</div>
-          <div class="t-hotel">✈️ המראה בערב מ-SJO</div>
+        <a class="timeline-card" href="#block5">
+          <div class="t-top"><span class="t-day">לילה אחרון</span><span class="t-date">30.9–1.10</span></div>
+          <div class="t-title">☕ העמק המרכזי: קפה, פואס והמראה</div>
+          <div class="t-hotel">⏳ Finca Rosa Blanca</div>
         </a>
 
       </div>
@@ -513,11 +490,30 @@
         <div class="task-item" id="item-arenal-hotel">
           <input type="checkbox" onchange="toggleTask('arenal-hotel', this.checked)">
           <div class="task-content">
-            <div class="task-text">3 לילות בארנאל (Nayara Gardens / Tabacón)</div>
-            <div class="task-meta">24-27.9: חדר/סוויטה לשלושה מול הר הגעש עם מעיינות חמים</div>
+            <div class="task-text">3 לילות בארנאל: Arenal Keljá, וילה עם 2 חדרי קינג</div>
+            <div class="task-meta">✔ הוזמן 7.9 ב-Airbnb, $1,079 כולל הכל. ביטול חינם עד 19.9</div>
             <div class="task-links">
-              <a class="task-link" href="https://www.nayararesorts.com" target="_blank">אתר Nayara Resorts</a>
-              <a class="task-link" href="https://www.tabacon.com" target="_blank">אתר Tabacón</a>
+              <a class="task-link" href="https://www.airbnb.com/rooms/1693986953583804900" target="_blank">הרשומה ב-Airbnb</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="task-item" id="item-kelja-followup">
+          <input type="checkbox" onchange="toggleTask('kelja-followup', this.checked)">
+          <div class="task-content">
+            <div class="task-text">לענות ל-Fabian מ-Keljá ב-WhatsApp</div>
+            <div class="task-meta">לשאול: הבנייה הסמוכה הסתיימה? מסירת רכב שכור בווילה? הצעת מחיר להסעה פרטית Caño Blanco → Keljá ב-24.9 עם עצירה ב-Tirimbina? כרטיסים ל-Tabacón / Ecotermales דרכם? מטבח מאובזר (קפה, מחבת)? מספר WhatsApp</div>
+          </div>
+        </div>
+
+        <div class="task-item" id="item-hot-springs">
+          <input type="checkbox" onchange="toggleTask('hot-springs', this.checked)">
+          <div class="task-content">
+            <div class="task-text">מעיינות חמים בארנאל (ערב 24.9)</div>
+            <div class="task-meta">Tabacón ערב 18:00–22:00 עם ארוחת ערב ~$168 לאדם, או יום $99. חלופה שקטה וזולה: Ecotermales ~$55, חובה להזמין מראש</div>
+            <div class="task-links">
+              <a class="task-link" href="https://www.tabacon.com/hot-springs" target="_blank">Tabacón</a>
+              <a class="task-link" href="https://ecotermalesfortuna.cr" target="_blank">Ecotermales</a>
             </div>
           </div>
         </div>
@@ -702,198 +698,301 @@
     </details>
   </section>
 
-  <!-- ================= DETAILED DAYS ================= -->
-  <section id="days-detail">
-    <h2 class="sec-title">📖 פירוט המסלול יום אחר יום</h2>
+  <!-- ================= BLOCKS BY ACCOMMODATION ================= -->
+  <section id="blocks">
+    <h2 class="sec-title">🧭 המסלול לפי בלוקים של לינה</h2>
+    <p class="sec-note">כל בלוק = מקום לינה אחד. בתוך כל בלוק: אפשרויות לאוכל, הליכות, אטרקציות ולוגיסטיקה. <span class="chip">מתוכנן</span> = כבר במסלול/במשימות, <span class="chip book">להזמין</span> = דורש שריון מראש, השאר ספונטני.</p>
 
-    <!-- DAY 1 -->
-    <details class="day" id="day1" open>
+    <!-- BLOCK 1 -->
+    <details class="day" id="block1" open>
       <summary>
-        <div class="day-badge"><small>יום 1</small><span>21.9</span></div>
+        <div class="day-badge"><small>לילה 1</small><span>21.9</span></div>
         <div class="day-title-wrap">
-          <h3>נחיתה בסן חוסה והתארגנות רגועה</h3>
-          <div class="day-meta"><span>✈️ נחיתה ב-SJO</span><span>🛌 לילה ראשון רך</span></div>
+          <h3>🛬 סן חוסה: נחיתה ולילה ראשון</h3>
+          <div class="day-meta"><span>✈️ נחיתה בצהריים</span><span>🏨 לינה: ממתין להצעה (Grano de Oro)</span><span class="status wait">⏳ טרם הוזמן</span></div>
         </div>
         <div class="chev">▼</div>
       </summary>
       <div class="day-body">
-        <p>נוחתים בצהריים, עוברים ביקורת דרכונים ואיסוף כבודה בלי לחץ. צ'ק-אין במלון אחוזה יפהפה בעמק המרכזי (כגון Marriott Hacienda Belén או מלון נוח ליד השדה), התרעננות בבריכה, ארוחת ערב קלה עם דגים וירקות מקומיים, ולינה מוקדמת – מחר ב-5:30 מתחיל הספארי הקריבי.</p>
-        <div class="inner-box">
-          <h4>🏨 לינה: Costa Rica Marriott Hacienda Belén / Hampton SJO</h4>
-          <p>מלון שקט עם ארוחת בוקר שמתחילה מוקדם מאוד ושאטל איסוף נוח.</p>
-          <a class="btn-link" href="#place-marriott">💲 מחירים, תמונות וקישורים</a>
+        <p>נוחתים ב-SJO בצהריים, נחים, ארוחת ערב קלה ולינה מוקדמת. ב-22.9 יוצאים 6:30–7:00 לרציף Caño Blanco (3–3.5 שעות) לסירה של 10:30. דרישה: מיטת קינג לנעם ואורית + מיטה נפרדת לנגה.</p>
+        <div class="block-opts">
+          <div class="inner-box">
+            <h4>🏨 לינה, לפי סדר עדיפות</h4>
+            <ul>
+              <li><b>Hotel Grano de Oro</b>, סוויטה משפחתית ~$350–390. אחות של Tortuga Lodge (Böëna), מסעדה מצוינת, אפשר להזמין את ההסעה לרציף דרכם. <span class="chip book">ממתין להצעה</span></li>
+              <li><b>Courtyard by Marriott SJO</b>, King + ספה נפתחת, 38 מ"ר, ~$150–200. <a href="https://www.booking.com/hotel/cr/courtyard-by-marriott-san-jose-airport-alajuela.html" target="_blank">Booking</a></li>
+              <li><b>Hampton by Hilton SJO</b>, King Studio + ספה נפתחת, ~$150–190, ארוחת בוקר מוקדמת. <a href="#place-hampton">כרטיס</a></li>
+              <li><b>Xandari Resort</b>, Ultra Villa, קינג + 2 ספות נפתחות, נוף לעמק, ~$280–400. <a href="https://www.booking.com/hotel/cr/xandari-resort-amp-spa.en-gb.html" target="_blank">Booking</a></li>
+              <li>Marriott Hacienda Belén: רק עם 2 חדרים (אין קינג + מיטה שלישית). <a href="#place-marriott">כרטיס</a></li>
+            </ul>
+          </div>
+          <div class="inner-box">
+            <h4>🍽️ אוכל</h4>
+            <ul>
+              <li>ארוחת ערב במלון (ב-Grano de Oro: המסעדה נחשבת מהטובות בעיר, לבקש שולחן בפאטיו)</li>
+              <li>אם ליד השדה: <b>Jalapeños Central</b> באלחואלה (טקס-מקס, זול וטוב), או <b>Chubascos</b> בדרך לפואס אם רוצים נסיעה קצרה</li>
+              <li>בוקר 22.9: קפה ופרי לדרך מהמלון, צהריים כלולים בלודג' ב-12:00</li>
+            </ul>
+          </div>
+          <div class="inner-box">
+            <h4>🎟️ אם יש כוח (לא חובה)</h4>
+            <ul>
+              <li>Mercado Central + Teatro Nacional במרכז סן חוסה, שעתיים. רלוונטי רק אם לנים ב-Grano de Oro</li>
+              <li>בריכה ומנוחה. מחר קמים ב-6:00</li>
+            </ul>
+          </div>
+          <div class="inner-box">
+            <h4>🚗 לוגיסטיקה</h4>
+            <ul>
+              <li>שאטל מהשדה למלון (כלול ברוב המלונות ליד השדה)</li>
+              <li>22.9: הסעה פרטית לרציף Caño Blanco. עדיפות להצעת הלודג'/Böëna (מתואם עם הסירה). חלופה: ואן פרטי ~$245–260 <span class="chip book">להזמין</span></li>
+              <li>אין רכב שכור בשלב הזה, האיסוף בלה פורטונה ב-24.9</li>
+            </ul>
+          </div>
         </div>
       </div>
     </details>
 
-    <!-- DAY 2 -->
-    <details class="day" id="day2">
+    <!-- BLOCK 2 -->
+    <details class="day" id="block2">
       <summary>
-        <div class="day-badge"><small>יום 2</small><span>22.9</span></div>
+        <div class="day-badge"><small>2 לילות</small><span>22–24.9</span></div>
         <div class="day-title-wrap">
-          <h3>נסיעה לקריבי, שיט בג'ונגל ובלילה: שיא הטלת הצבים</h3>
-          <div class="day-meta"><span>🚤 שעה שיט בתעלות</span><span>🐢 סיור חוף לילי</span></div>
+          <h3>🐢 טורטוגרו: Tortuga Lodge &amp; Gardens</h3>
+          <div class="day-meta"><span>🚤 סירה 10:30 מ-Caño Blanco</span><span>🏨 Miss Perla King + Miss Evelyn</span><span class="status ok">✔ הוזמן</span></div>
         </div>
         <div class="chev">▼</div>
       </summary>
       <div class="day-body">
-        <p>איסוף מוקדם מהמלון, נסיעה דרך הפארק הלאומי בראוליו קאריז'ו עד לרציף La Pavona, ומשם שיט קסום של שעה בתעלות המים היישר ללודג'. אחר הצהריים ביקור בכפר טורטוגרו. <b>בלילה:</b> יציאה עם מדריך מורשה לחוף החשוך לחזות בצבת ים ירוקה ענקית מטילה ביצים בחול – חוויה נדירה שנמצאת בשיאה בספטמבר.</p>
-        <div class="inner-box">
-          <h4>🏨 לינה: Tortuga Lodge & Gardens (לילה 1 מתוך 2)</h4>
-          <p>הלודג' המוביל בטורטוגרו, יושב ישירות על שפת המים עם מדריכים פרטיים מעולים.</p>
-          <a class="btn-link" href="#place-tortuga">💲 מחירים, תמונות וקישורים</a>
-          <div class="diet-tip">🥗 <b>לאורית:</b> המטבח הקריבי מבוסס על קוקוס, ירקות שורש, שעועית שחורה ודגי ים טריים – מתאים במיוחד לצמחונים ואוכלי דגים.</div>
+        <p>Full Experience: כל הארוחות, שיט הלוך ושוב, עד 2 סיורים משותפים לכל לילה (4 לאדם), עיסוי לחדר. סיור הצבים לא כלול ונקנה בנפרד. <a class="btn-link" href="#place-tortuga">💲 פרטי ההזמנה</a></p>
+        <div class="block-opts">
+          <div class="inner-box">
+            <h4>🎟️ סיורים כלולים (לבחור עד 4 לאדם)</h4>
+            <ul>
+              <li><b>Natural History Boat</b>, 3 שעות, שיט שקט בתעלות עם שחר. הכי חשוב <span class="chip">מתוכנן 23.9 בוקר</span></li>
+              <li><b>כפר טורטוגרו</b>, שעתיים, היסטוריה וקהילה קריבית <span class="chip">מתוכנן 22.9 אחה"צ</span></li>
+              <li><b>Twilight / Night Walk</b> בשמורה הפרטית של הלודג', שעתיים, צפרדעים ועכבישים</li>
+              <li><b>קיאק</b> בתעלות, שעתיים (נגה 16: קיאק יחיד בליווי מבוגר)</li>
+              <li><b>Cerro Tortuguero</b>, טיפוס שעתיים לתצפית היחידה על החוף הקריבי</li>
+              <li><b>Early Birds</b> צפרות עם שחר, או <b>Laguna 4</b> שיט ארוך</li>
+            </ul>
+          </div>
+          <div class="inner-box">
+            <h4>🐢 בתשלום נוסף</h4>
+            <ul>
+              <li><b>הטלת צבים</b>, ליל 22.9, $100 לאדם, קבוצות עד 10 עם מדריך מורשה. הסיבה לטיול <span class="chip book">להזמין</span></li>
+              <li><b>בקיעת גורי צבים</b>, שחר או לפני שקיעה, $60 לאדם, עונה מ-15.9 <span class="chip book">אופציונלי</span></li>
+              <li>שיעור בישול קריבי פרטי, $50 לאדם, אם גשום</li>
+              <li>כניסה לפארק הלאומי לשביל היבשתי El Gavilán, $17, דרך SINAC אם לא כלול בסיור</li>
+            </ul>
+          </div>
+          <div class="inner-box">
+            <h4>🍽️ אוכל</h4>
+            <ul>
+              <li><b>Mydas Nest</b>, מסעדת הלודג', 3 ארוחות ביום כלולות. לציין פסקטריאנית מראש</li>
+              <li><b>Miss Junie's</b> בכפר, דג שלם בקארי קוקוס, $15–25, אם רוצים ארוחה אחת מחוץ ללודג'</li>
+              <li><b>Budda Café</b> על הנהר בכפר, קפה וקינוח אחרי סיור הכפר</li>
+            </ul>
+          </div>
+          <div class="inner-box">
+            <h4>🥾 הליכות</h4>
+            <ul>
+              <li>שבילי הלודג' בשמורה הפרטית (26 הקטאר), עצמאי, מגפיים מסופקים</li>
+              <li>הליכה על החוף מול הכפר ביום (בלילה רק עם מדריך)</li>
+              <li>Cerro Tortuguero (ראו סיורים)</li>
+            </ul>
+          </div>
+          <div class="inner-box">
+            <h4>🚗 לוגיסטיקה</h4>
+            <ul>
+              <li>22.9: להגיע ל-Caño Blanco עד 10:00, סירה 10:30, הגעה ללודג' 12:00, צהריים</li>
+              <li>24.9: סירה 8:30, ברציף ב-10:00, ואן ללה פורטונה ~3.5 שעות, עצירה ב-Tirimbina (שוקולד, שעתיים) בדרך <span class="chip book">להזמין</span></li>
+              <li>הצעות להסעה: Böëna, צוות Keljá (מציעים הסעות פרטיות), או ואן פרטי $323</li>
+              <li>איסוף רכב 4x4 בלה פורטונה אחה"צ (Adobe מספקים לכתובת) <span class="chip book">להזמין</span></li>
+            </ul>
+          </div>
         </div>
       </div>
     </details>
 
-    <!-- DAY 3 -->
-    <details class="day" id="day3">
+    <!-- BLOCK 3 -->
+    <details class="day" id="block3">
       <summary>
-        <div class="day-badge"><small>יום 3</small><span>23.9</span></div>
+        <div class="day-badge"><small>3 לילות</small><span>24–27.9</span></div>
         <div class="day-title-wrap">
-          <h3>ספארי תעלות עם שחר ושבילי יער הגשם</h3>
-          <div class="day-meta"><span>🛶 שייט שקט מוקדם</span><span>🦥 עצלנים וקופים</span></div>
+          <h3>🌋 ארנאל: Arenal Keljá, וילה עם 2 חדרי קינג</h3>
+          <div class="day-meta"><span>🏊 בריכה פרטית מחוממת</span><span>🚗 4x4 מיום 24.9</span><span class="status ok">✔ הוזמן</span></div>
         </div>
         <div class="chev">▼</div>
       </summary>
       <div class="day-body">
-        <p>שיט שקט בסירת משוטים/מנוע חשמלי עם אור ראשון בתעלות השקטות: הרגע שבו היער מתעורר, עם שאגות קופי שאגן, טוקאנים, לוטרות מים ואיגואנות ענק. חזרה לארוחת בוקר עשירה, צעידה בשבילי הג'ונגל הפרטיים של הלודג' ואחה"צ רגוע ליד הבריכה על הנהר.</p>
-      </div>
-    </details>
-
-    <!-- DAY 4 -->
-    <details class="day" id="day4">
-      <summary>
-        <div class="day-badge"><small>יום 4</small><span>24.9</span></div>
-        <div class="day-title-wrap">
-          <h3>מעבר לארנאל, איסוף 4x4 וטבילה במעיינות חמים</h3>
-          <div class="day-meta"><span>🚗 שאטל + רכב שכור</span><span>♨️ מעיינות טרמיים</span></div>
-        </div>
-        <div class="chev">▼</div>
-      </summary>
-      <div class="day-body">
-        <p>שיט בוקר חזרה לרציף לה פבונה, משם שאטל ישיר לאזור לה פורטונה (הר הגעש ארנאל). איסוף רכב ה-4x4. צ'ק-אין באחד הריזורטים הטובים ביבשת, וערב של טבילה מרגיעה במעיינות החמים הטבעיים בתוך יער הגשם.</p>
-        <div class="inner-box">
-          <h4>🏨 לינה: Nayara Gardens / Tabacón Thermal Resort (לילה 1 מתוך 3)</h4>
-          <p>ריזורטים ברמה עולמית המציעים ספא, בריכות מים תרמיים ומסעדות שף עם תפריטים עשירים ללא בשר.</p>
-          <a class="btn-link" href="#place-nayara">💲 מחירים, תמונות וקישורים</a>
-        </div>
-      </div>
-    </details>
-
-    <!-- DAY 5 -->
-    <details class="day" id="day5">
-      <summary>
-        <div class="day-badge"><small>יום 5</small><span>25.9</span></div>
-        <div class="day-title-wrap">
-          <h3>גשרים תלויים בצמרות ומפל לה פורטונה</h3>
-          <div class="day-meta"><span>🥾 ~7 ק"מ הליכה</span><span>🌊 שחייה בבריכת המפל</span></div>
-        </div>
-        <div class="chev">▼</div>
-      </summary>
-      <div class="day-body">
-        <p>בוקר ב-Místico Hanging Bridges: הליכה בין צמרות העצים בגובה עשרות מטרים עם תצפית אל הר הגעש ועושר של ציפורים ועצלנים. בצהריים: ירידה ב-500 המדרגות של מפל לה פורטונה (70 מטר גובה) לרחצה מרעננת בבריכה הטבעית שלמטה.</p>
-      </div>
-    </details>
-
-    <!-- DAY 6 -->
-    <details class="day" id="day6">
-      <summary>
-        <div class="day-badge"><small>יום 6</small><span>26.9</span></div>
-        <div class="day-title-wrap">
-          <h3>אומגות מעל הקניונים ומקלט חיות הבר Proyecto Asís</h3>
-          <div class="day-meta"><span>🪂 Sky Trek Zipline</span><span>🦜 מקלט חיות בר</span></div>
-        </div>
-        <div class="chev">▼</div>
-      </summary>
-      <div class="day-body">
-        <p>בוקר אדרנלין לכל המשפחה: גלישה על כבלי אומגה ארוכים מעל עמקי הג'ונגל. אחר הצהריים: ביקור ערכי ומודרך ב-Proyecto Asís – מקלט שמשקם חיות בר שנפגעו או חולצו מסחר לא חוקי. בערב: ארוחה חגיגית במסעדת Don Rufino בלה פורטונה.</p>
-      </div>
-    </details>
-
-    <!-- DAY 7 -->
-    <details class="day" id="day7">
-      <summary>
-        <div class="day-badge"><small>יום 7</small><span>27.9</span></div>
-        <div class="day-title-wrap">
-          <h3>נסיעה לחוף הפסיפי, גשר התנינים והגעה לאוביטה</h3>
-          <div class="day-meta"><span>🚙 נסיעה נופית</span><span>🐊 תצפית תניני ענק בטארקולס</span></div>
-        </div>
-        <div class="chev">▼</div>
-      </summary>
-      <div class="day-body">
-        <p>ירידה מההרים לעבר החוף הפסיפי. עצירת חובה בגשר נהר הטארקולס לצפייה בעשרות תניני ענק באורך 4-5 מטרים המשתזפים על הגדה. ממשיכים דרומה עד אוביטה. הגעה ללודג' אקולוגי הממוקם על צוק מעל האוקיינוס ושקיעה פסיפית ראשונה.</p>
-        <div class="inner-box">
-          <h4>🏨 לינה: La Cusinga Eco Lodge (לילה 1 מתוך 3)</h4>
-          <p>בקתות עץ אל מול שמורת מרינו באיינה, שבילי הליכה פרטיים בתוך יער גשם היורד ישירות לחוף.</p>
-          <a class="btn-link" href="#place-cusinga">💲 מחירים, תמונות וקישורים</a>
+        <p>וילה בת 2 חדרי שינה עם קינג בכל אחד, מטבח, בריכה מחוממת עם ג'טים, נוף להר הגעש, נהר לה פורטונה בשטח. 3 ק"מ מהעיירה, 1 ק"מ מכביש המפל. אין ארוחת בוקר ואין מעיינות חמים במקום, אז שתי ההוצאות האלה נמצאות ברשימות למטה. <a class="btn-link" href="#place-kelja">💲 פרטי ההזמנה</a></p>
+        <div class="block-opts">
+          <div class="inner-box">
+            <h4>♨️ מעיינות חמים (לבחור ערב אחד או שניים)</h4>
+            <ul>
+              <li><b>Tabacón</b>, הכי יפה, נהר תרמי ביער. יום $99, ערב 18:00–22:00 עם ארוחת ערב ~$168 <span class="chip">מתוכנן 24.9 ערב</span> <span class="chip book">להזמין</span></li>
+              <li><b>Ecotermales</b>, קטן, שקט, מוגבל ל-100 איש, ~$50–60. הזמנה מראש חובה</li>
+              <li><b>Baldi</b>, הגדול והזול, ~$40, מגלשות, רועש</li>
+              <li><b>Paradise Hot Springs</b>, בינוני ורגוע, ~$40</li>
+              <li><b>El Chollín</b>, הנהר החם החינמי מול Tabacón, עצירה של חצי שעה ביום</li>
+            </ul>
+          </div>
+          <div class="inner-box">
+            <h4>🍽️ אוכל</h4>
+            <ul>
+              <li>בוקר בווילה: <b>MegaSuper</b> / <b>Super Cristian</b> במרכז, מאפייה <b>Musmanni</b>, 8 דקות</li>
+              <li><b>Don Rufino</b>, מסעדת השף של העיירה, $40–60 <span class="chip">מתוכנן 26.9</span> <span class="chip book">להזמין</span> <a href="#place-donrufino">כרטיס</a></li>
+              <li><b>Que Rico Arenal</b>, פיצה מתנור עצים ונוף להר, בדרך לפארק. טוב לערב הראשון</li>
+              <li><b>Restaurante Nene's</b>, טיקו קלאסי, דג שלם וקסאדו</li>
+              <li><b>Chifa La Familia Feliz</b>, פרואני-סיני, פירות ים, פופולרי</li>
+              <li><b>Anch'io</b>, איטלקי, פסטה צמחונית ודגים</li>
+              <li><b>Mercadito Arenal</b>, שוק אוכל קטן: טאקו, סביצ'ה, בר</li>
+              <li><b>Soda Víquez</b>, צהריים ב-$10, קסאדו צמחוני</li>
+              <li>בוקר בחוץ: <b>Chocolate Fusion</b> או <b>Mi Casa Café</b></li>
+            </ul>
+          </div>
+          <div class="inner-box">
+            <h4>🥾 הליכות</h4>
+            <ul>
+              <li><b>Místico Hanging Bridges</b>, 3 ק"מ, 16 גשרים, $36 עצמאי / $50 מודרך <span class="chip">מתוכנן 25.9 בוקר</span></li>
+              <li><b>מפל לה פורטונה</b>, 500 מדרגות ושחייה, $20, 5 דקות מהווילה <span class="chip">מתוכנן 25.9</span></li>
+              <li><b>Arenal 1968</b>, שביל הלבה, 2.5 ק"מ, הנוף הקרוב ביותר ללוע, $25</li>
+              <li><b>Arenal Volcano NP</b>, שבילי Coladas / Peninsula, $17, נוף לאגם</li>
+              <li><b>Bogarín Trail</b> בעיירה, עצלנים כמעט מובטחים, ~$20 עם מדריך</li>
+              <li><b>El Silencio Mirador</b>, תצפית שקטה על ההר, $10</li>
+              <li>שבילי הנהר של Keljá, קצרים, צפרדעי חץ</li>
+              <li>Cerro Chato סגור רשמית, לא ללכת</li>
+            </ul>
+          </div>
+          <div class="inner-box">
+            <h4>🎟️ אטרקציות</h4>
+            <ul>
+              <li><b>Sky Trek</b> אומגה + Sky Tram, $93, הנחת EARLYBIRD 10% <span class="chip">מתוכנן 26.9 בוקר</span> <span class="chip book">להזמין</span></li>
+              <li><b>Proyecto Asís</b>, מקלט חיות בר, $40 / $60 עם התנדבות <span class="chip">מתוכנן 26.9 אחה"צ</span> <span class="chip book">להזמין</span></li>
+              <li><b>הליכת לילה</b> Arenal Oasis ($56) או Ecocentro Danaus, 17:45–20:00 <span class="chip">מתוכנן 25.9 ערב</span> <span class="chip book">להזמין</span></li>
+              <li><b>סיור שוקולד</b>: Tirimbina בדרך מטורטוגרו ($42) או Rainforest Chocolate Tour בעיירה ($32) <span class="chip">מתוכנן 24.9</span></li>
+              <li><b>אגם ארנאל</b>: קיאק / SUP / שייט שקיעה, ~$50–70, או נסיעת שקיעה לכביש האגם ול-El Castillo</li>
+              <li><b>Venado Caves</b>, מערות עם עטלפים, $30, שעה נסיעה, ליום גשום</li>
+              <li><b>Butterfly Conservatory</b> ב-El Castillo, $18</li>
+              <li>רכיבת סוסים למפל, טיובינג בנהר, ATV: צוות Keljá מארגן, לשאול מחירים</li>
+              <li><b>Oasis Spa</b> בשטח Keljá, עיסוי אחרי יום הליכה</li>
+            </ul>
+          </div>
+          <div class="inner-box">
+            <h4>🚗 לוגיסטיקה</h4>
+            <ul>
+              <li>צ'ק-אין עצמאי מ-15:00 (מנעול חכם), צ'ק-אאוט 11:00</li>
+              <li>איסוף 4x4: Adobe מספקים ללה פורטונה, לתאם מסירה בווילה או במשרד בעיירה</li>
+              <li>27.9: נסיעה לאוביטה 5–5.5 שעות דרך גשר התנינים בטארקולס. יציאה עד 8:30</li>
+              <li>הצעת הסעה של Keljá מ-Caño Blanco (24.9) יכולה להחליף את הוואן הפרטי</li>
+            </ul>
+          </div>
         </div>
       </div>
     </details>
 
-    <!-- DAY 8 -->
-    <details class="day" id="day8">
+    <!-- BLOCK 4 -->
+    <details class="day" id="block4">
       <summary>
-        <div class="day-badge"><small>יום 8</small><span>28.9</span></div>
+        <div class="day-badge"><small>3 לילות</small><span>27–30.9</span></div>
         <div class="day-title-wrap">
-          <h3>שיא הלווייתנים הגבנוניים והליכה על זנב הלווייתן</h3>
-          <div class="day-meta"><span>🐋 שייט בוקר ייעודי</span><span>🏖️ הליכה בשפל על ה-Whale's Tail</span></div>
+          <h3>🐋 אוביטה: La Cusinga Eco Lodge (או חלופה)</h3>
+          <div class="day-meta"><span>🐋 שיא הלווייתנים</span><span>🌊 מרינו באיינה</span><span class="status wait">⏳ טרם הוזמן</span></div>
         </div>
         <div class="chev">▼</div>
       </summary>
       <div class="day-body">
-        <p>יציאה לשייט מוקדם בפארק מרינו באיינה – שיא עונת הלווייתנים מאנטארקטיקה, סיכוי פנומנלי לחזות באמהות וגורים קופצים מעל פני המים יחד עם דולפינים. בשעות השפל: הליכה רגלית על רצועת החול המפורסמת שמעוצבת בטבע במדויק בצורת זנב לווייתן.</p>
+        <p>לודג' אקולוגי על צוק מול מפרץ הלווייתנים, שבילים פרטיים לחוף. לפני ההזמנה: לוודא חדר עם קינג + מיטה נפרדת לנגה (החדרים הסטנדרטיים הם 2 מיטות זוגיות). <a class="btn-link" href="#place-cusinga">💲 מחירים וקישורים</a></p>
+        <div class="block-opts">
+          <div class="inner-box">
+            <h4>🎟️ אטרקציות</h4>
+            <ul>
+              <li><b>שייט לווייתנים ודולפינים</b>, בוקר, $80–85, כולל כניסה לפארק. Bahía Aventuras / Ballena Tour <span class="chip">מתוכנן 28.9</span> <span class="chip book">להזמין</span></li>
+              <li><b>זנב הלווייתן</b>, הליכה על החול בשפל בלבד. לבדוק טבלת גאות ל-28–29.9 <span class="chip">מתוכנן</span></li>
+              <li><b>מפלי נאוויאקה</b>, הליכה 12 ק"מ ($10) או טנדר 4x4 ($32), שחייה בבריכה <span class="chip">מתוכנן 29.9</span></li>
+              <li><b>Hacienda Barú</b>, שמורה פרטית ליד דומיניקל, שבילים ($10) והליכת לילה ($88)</li>
+              <li><b>Alturas Wildlife Sanctuary</b>, מקלט חיות, סיור מודרך $25</li>
+              <li><b>Parque Reptilandia</b>, זוחלים, $15, ליום גשום</li>
+              <li><b>Caño Island</b>, שנורקל ביום שלם, ~$150 לאדם, אם רוצים עוד יום ים</li>
+              <li><b>דומיניקל</b>, עיירת גלישה, שיעור גלישה $50–60</li>
+            </ul>
+          </div>
+          <div class="inner-box">
+            <h4>🥾 הליכות</h4>
+            <ul>
+              <li>שבילי La Cusinga אל Playa Arco, חוף פרטי כמעט, חינם לאורחים</li>
+              <li>חוף Marino Ballena מאוביטה עד זנב הלווייתן, $7 כניסה, בשפל</li>
+              <li><b>Cascada Uvita</b>, מפל קטן עם מגלשה טבעית, $3, 10 דקות מהעיירה</li>
+              <li><b>Catarata Pavón</b> באוחוצ'אל, קצר, לפני Citrus</li>
+              <li>שבילי Hacienda Barú (ראו אטרקציות)</li>
+            </ul>
+          </div>
+          <div class="inner-box">
+            <h4>🍽️ אוכל</h4>
+            <ul>
+              <li><b>Citrus</b> באוחוצ'אל, ארוחת השף, $45–70, סגור בראשון <span class="chip">מתוכנן 29.9</span> <span class="chip book">להזמין</span> <a href="#place-citrus">כרטיס</a></li>
+              <li><b>Exotica</b> ו-<b>Azul</b> באוחוצ'אל: עוד שתי מסעדות שף בכפר הקולינרי</li>
+              <li><b>Sibu</b> באוביטה, יומיומי טוב, $15–30 <a href="#place-sibu">כרטיס</a></li>
+              <li><b>The Dome</b>, אוביטה, בוקר והמבורגרים</li>
+              <li><b>Roadhouse 169</b>, אוביטה, פאב עם ערבי מוזיקה</li>
+              <li><b>Pancito Café</b>, אוחוצ'אל, מאפייה צרפתית לבוקר</li>
+              <li>מסעדת La Cusinga לערב עצלן עם נוף</li>
+            </ul>
+          </div>
+          <div class="inner-box">
+            <h4>🚗 לוגיסטיקה</h4>
+            <ul>
+              <li>27.9: בדרך מארנאל, עצירה בגשר נהר טארקולס (תנינים, חינם) <span class="chip">מתוכנן</span></li>
+              <li>30.9: יציאה 6:30 למנואל אנטוניו (שעה צפונה), כניסה 7:30 עם מדריך ($59 כולל כניסה), חניה מאובטחת $6–10 <span class="chip">מתוכנן</span> <span class="chip book">להזמין</span></li>
+              <li>30.9 אחה"צ: מנואל אנטוניו → Finca Rosa Blanca כ-3.5 שעות</li>
+              <li>הפארק מנואל אנטוניו סגור בימי שלישי, כרטיסים רק אונליין ב-SINAC</li>
+            </ul>
+          </div>
+        </div>
       </div>
     </details>
 
-    <!-- DAY 9 -->
-    <details class="day" id="day9">
+    <!-- BLOCK 5 -->
+    <details class="day" id="block5">
       <summary>
-        <div class="day-badge"><small>יום 9</small><span>29.9</span></div>
+        <div class="day-badge"><small>לילה אחרון</small><span>30.9–1.10</span></div>
         <div class="day-title-wrap">
-          <h3>טרק למפלי נאוויאקה וערב גורמה באוחוצ'אל</h3>
-          <div class="day-meta"><span>🥾 ~8 ק"מ הליכה</span><span>🍽️ ארוחת שף במסעדת Citrus</span></div>
+          <h3>☕ העמק המרכזי: Finca Rosa Blanca והמראה</h3>
+          <div class="day-meta"><span>☕ סיור קפה</span><span>✈️ המראה בערב 1.10</span><span class="status wait">⏳ טרם הוזמן</span></div>
         </div>
         <div class="chev">▼</div>
       </summary>
       <div class="day-body">
-        <p>הליכת בוקר יפהפייה בג'ונגל אל צמד מפלי נאוויאקה האדירים ושחייה בבריכה הטבעית הענקית שמתחת למפל. בערב: נסיעה קצרה לכפר הקולינרי אוחוצ'אל וארוחה במסעדת השף Citrus (דגים טריים, ירקות טרופיים ומטבח צרפתי-טרופי מעולה).</p>
-      </div>
-    </details>
-
-    <!-- DAY 10 -->
-    <details class="day" id="day10">
-      <summary>
-        <div class="day-badge"><small>יום 10</small><span>30.9</span></div>
-        <div class="day-title-wrap">
-          <h3>הפארק הלאומי מנואל אנטוניו ולילה בחוות קפה בוטיקית</h3>
-          <div class="day-meta"><span>🦥 סיור מודרך מוקדם</span><span>☕ Finca Rosa Blanca</span></div>
+        <p>פונדק בוטיק במטע קפה אורגני, 25 דקות מהשדה. Junior Suite עם קינג + מיטה נוספת. ארוחת סיום במסעדת החווה. <a class="btn-link" href="#place-rosablanca">💲 מחירים וקישורים</a></p>
+        <div class="block-opts">
+          <div class="inner-box">
+            <h4>🎟️ אטרקציות ליום האחרון (לבחור אחת)</h4>
+            <ul>
+              <li><b>סיור קפה</b> בחווה, 2.5 שעות עם טעימות, $40 <span class="chip">מתוכנן 1.10 בוקר</span> <span class="chip book">להזמין</span></li>
+              <li><b>הר הגעש פואס</b>, שעה נסיעה, $17, חלון זמן של שעה, כרטיס רק ב-SINAC ~4 שבועות מראש <span class="chip">מתוכנן אם בהיר</span></li>
+              <li><b>גן Lankester</b> בקרטגו, סחלבים, $12, שעה ורבע נסיעה. גיבוי לפואס</li>
+              <li><b>La Paz Waterfall Gardens</b>, מפלים + גן חיות, $50, שעה נסיעה. יקר אבל בטוח ביום גשום</li>
+              <li><b>Sarchí</b>, כפר האומנים ועגלות השוורים, 45 דקות, לקניות מזכרות</li>
+            </ul>
+          </div>
+          <div class="inner-box">
+            <h4>🍽️ אוכל</h4>
+            <ul>
+              <li><b>El Tigre Vestido</b>, מסעדת החווה, תפריט טעימות $65 או à la carte, להזמין 24 שעות מראש <span class="chip">מתוכנן 30.9 ערב</span> <span class="chip book">להזמין</span> <a href="#place-tigre">כרטיס</a></li>
+              <li>ארוחת בוקר מלאה כלולה, קפה ועוגיות אחה"צ</li>
+              <li>צהריים 1.10: במסעדת החווה או בדרך לשדה</li>
+            </ul>
+          </div>
+          <div class="inner-box">
+            <h4>🚗 לוגיסטיקה</h4>
+            <ul>
+              <li>1.10: החזרת הרכב בשדה SJO אחה"צ, 25 דקות מהחווה. לתדלק לפני</li>
+              <li>להיות בשדה 3 שעות לפני ההמראה</li>
+              <li>מס יציאה כלול בכרטיס הטיסה</li>
+            </ul>
+          </div>
         </div>
-        <div class="chev">▼</div>
-      </summary>
-      <div class="day-body">
-        <p>כניסה ב-7:30 בבוקר לפארק הלאומי מנואל אנטוניו (ביום רביעי – פתוח ומרווח!) עם מדריך טלסקופי. צפייה בעצלנים, קופים וציפורים נדירות לאורך שבילים המסתיים במפרצי חוף מדהימים. (דגש בטיחות: חניה אך ורק בחניון מאובטח ושמירה על המזוודות ברכב). אחר הצהריים: נסיעה לעמק המרכזי וצ'ק-אין בחוות הקפה האורגנית Finca Rosa Blanca.</p>
-        <div class="inner-box">
-          <h4>🏨 לינה: Finca Rosa Blanca Coffee Farm & Inn (לילה אחרון)</h4>
-          <p>פונדק יוקרתי ומעוצב בתוך מטע קפה, 25 דקות משדה התעופה, וארוחת סיום חגיגית Farm-to-Table במסעדת El Tigre Vestido.</p>
-          <a class="btn-link" href="#place-rosablanca">💲 מחירים, תמונות וקישורים</a>
-        </div>
-      </div>
-    </details>
-
-    <!-- DAY 11 -->
-    <details class="day" id="day11">
-      <summary>
-        <div class="day-badge"><small>יום 11</small><span>1.10</span></div>
-        <div class="day-title-wrap">
-          <h3>סיור קפה בחווה, תצפית להר הגעש פואס והמראה</h3>
-          <div class="day-meta"><span>☕ קפה מהפרי לכוס</span><span>✈️ המראה בערב מ-SJO</span></div>
-        </div>
-        <div class="chev">▼</div>
-      </summary>
-      <div class="day-body">
-        <p>סיור בוקר מרתק במטע הקפה האורגני של החווה, הבנת תהליך הקטיף והקלייה. במידה ומזג האוויר בהיר: נסיעה קצרה לתצפית אל הלוע הפעיל של הר הגעש פואס. ארוחת צהריים אחרונה, החזרת רכב ה-4x4 בשדה התעופה SJO בשעות אחה"צ והמראה בערב הביתה.</p>
       </div>
     </details>
 
@@ -991,58 +1090,30 @@
         </div>
       </details>
 
-      <details class="place" id="place-nayara">
+      <details class="place" id="place-kelja">
         <summary>
-          <img class="thumb" src="img/nayara.jpg" alt="Nayara Gardens" loading="lazy">
+          <img class="thumb" src="img/kelja1.jpg" alt="Arenal Keljá" loading="lazy">
           <div class="place-head">
             <span class="place-tag">לילות 4–6 · 24–27.9</span>
-            <h4>Nayara Gardens</h4>
-            <div class="place-sub">לה פורטונה · קסיטות עם בריכה פרטית מול הר הגעש</div>
-            <span class="price-chip">$1,900–2,700 ל-3 לילות</span>
+            <h4>Arenal Keljá, Luxury Villa</h4>
+            <div class="place-sub">לה פורטונה · וילה עם 2 חדרי קינג, בריכה פרטית מחוממת, נוף להר הגעש</div>
+            <span class="price-chip ok">✔ הוזמן · $1,079 ל-3 לילות</span>
           </div>
           <div class="chev">▼</div>
         </summary>
         <div class="place-body">
-          <img src="img/nayara2.jpg" alt="" loading="lazy">
+          <img src="img/kelja3.jpg" alt="" loading="lazy">
           <dl>
-            <dt>חדר ל-3</dt><dd>Arenal Pool Casita (97 מ"ר, קינג או 2 יחידות + מיטת יום, בריכת טבילה פרטית). מוגדרת רשמית ל-2 מבוגרים + ילד.</dd>
-            <dt>מחיר</dt><dd>$550–800 ללילה לפני מסים (Momondo: $441–833 לספטמבר, ממוצע Kayak אוקטובר $452). עם 13% מע"מ + 10% שירות: כ-$1,900–2,700 לשלושה לילות.</dd>
-            <dt>כלול</dt><dd>ארוחת בוקר, קוקטייל קבלת פנים, יוגה יומית, מיני-בר בסיסי, Wi-Fi.</dd>
-            <dt>מסעדות במקום</dt><dd><a href="#place-terraza">La Terraza</a> (גריל לטיני) ו-<a href="#place-asialuna">Asia Luna</a> (אסייתי-לטיני, סושי). כ-$60–90 לאדם לארוחת ערב.</dd>
-            <dt>חלופה</dt><dd><a href="#place-tabacon">Tabacón</a>: $1,300–1,800 ל-3 לילות, עם מעיינות חמים ללא הגבלה. חיסכון של $600–900 לעומת Nayara.</dd>
+            <dt>✔ הוזמן (7.9.2026)</dt><dd>Airbnb, 24–27.9, 3 אורחים, <b>$1,079 סה"כ</b> כולל מסים ועמלות (מחיר מלא $1,484). ביטול חינם עד 19.9, החזר חלקי עד 24.9. Superhost, 5.0 מ-13 ביקורות, המארח (המלון) 4.92 מ-66.</dd>
+            <dt>הווילה</dt><dd>2 חדרי שינה, <b>קינג בכל חדר</b>, ספה נפתחת בסלון, 2 חדרי אמבטיה, מטבח מאובזר, עמדת עבודה, טעינת רכב חשמלי, בריכה פרטית מחוממת עם ג'טים, מרפסת עם נוף להר הגעש.</dd>
+            <dt>המתחם</dt><dd>מלון בוטיק קטן עם כמה וילות. לאונג' משותף "Over the Magma" עם מטבח ביער, Oasis Spa, שבילי טבע קצרים, ונהר לה פורטונה (דגל כחול) לשחייה בשטח. מצלמות אבטחה חיצוניות.</dd>
+            <dt>מיקום</dt><dd>3 ק"מ ממרכז לה פורטונה (5–8 דקות), 1 ק"מ מכביש מפל לה פורטונה, 20 דקות מהפארק הלאומי. חניה חינם.</dd>
+            <dt>לא כלול</dt><dd>ארוחת בוקר (מטבח + סופר בעיירה), מעיינות חמים (Tabacón / Ecotermales בתשלום), ניקיון יומי.</dd>
+            <dt>צ'ק-אין</dt><dd>עצמאי עם מנעול חכם מ-15:00, צ'ק-אאוט 11:00. איש קשר: Fabian, צוות Keljá, ב-WhatsApp דרך Airbnb. מציעים תיאום סיורים והסעות פרטיות.</dd>
           </dl>
           <div class="place-links">
-            <a class="btn-link" href="https://nayaragardens.com/stay/" target="_blank">🌐 אתר רשמי</a>
-            <a class="btn-link" href="https://maps.google.com/?q=Nayara+Gardens,+La+Fortuna,+Costa+Rica" target="_blank">📍 Google Maps</a>
-            <a class="btn-link" href="https://www.booking.com/hotel/cr/arenal-nayara-gardens.html" target="_blank">🔎 Booking</a>
-            <a class="btn-link" href="https://www.momondo.com/hotels/la-fortuna/Nayara-Gardens.mhd416218.ksp" target="_blank">🔎 Momondo</a>
-          </div>
-        </div>
-      </details>
-
-      <details class="place" id="place-tabacon">
-        <summary>
-          <img class="thumb" src="img/tabacon.jpg" alt="Tabacón Thermal Resort & Spa" loading="lazy">
-          <div class="place-head">
-            <span class="place-tag alt">חלופה · 24–27.9</span>
-            <h4>Tabacón Thermal Resort &amp; Spa</h4>
-            <div class="place-sub">לה פורטונה · הריזורט שבנוי סביב נהר המעיינות החמים</div>
-            <span class="price-chip">$1,300–1,800 ל-3 לילות</span>
-          </div>
-          <div class="chev">▼</div>
-        </summary>
-        <div class="place-body">
-          <img src="img/tabacon.jpg" alt="" loading="lazy">
-          <dl>
-            <dt>חדר ל-3</dt><dd>Orchid Room עם 2 מיטות קווין (35 מ"ר, "מושלם למשפחות").</dd>
-            <dt>מחיר</dt><dd>$380–520 ללילה (Kayak: החל מ-$359, ממוצע ספטמבר $451). האתר הרשמי מגדיר 27.8–31.10 כעונה נמוכה. עם מסים: כ-$1,300–1,800.</dd>
-            <dt>כלול</dt><dd>כניסה חופשית למעיינות החמים כל השהות (שווה $99 לאדם ליום לאורחים חיצוניים), גני Shangri-La למבוגרים, ארוחת בוקר ברוב התעריפים.</dd>
-            <dt>שורה תחתונה</dt><dd>אם המעיינות הם העיקר, Tabacón חוסך גם את המלון וגם את כרטיסי הכניסה. Nayara יפה ושקט יותר, עם בריכה פרטית.</dd>
-          </dl>
-          <div class="place-links">
-            <a class="btn-link" href="https://www.tabacon.com/" target="_blank">🌐 אתר רשמי</a>
-            <a class="btn-link" href="https://maps.google.com/?q=Tabacon+Thermal+Resort+%26+Spa,+La+Fortuna,+Costa+Rica" target="_blank">📍 Google Maps</a>
-            <a class="btn-link" href="https://www.kayak.com/La-Fortuna-Hotels-Tabacon-Thermal-Resort-Spa.187137.ksp" target="_blank">🔎 Kayak</a>
+            <a class="btn-link" href="https://www.airbnb.com/rooms/1693986953583804900" target="_blank">🏠 הרשומה ב-Airbnb</a>
+            <a class="btn-link" href="https://www.google.com/maps/search/?api=1&query=Arenal+Kelja+La+Fortuna+Costa+Rica" target="_blank">📍 Google Maps</a>
           </div>
         </div>
       </details>
@@ -1126,56 +1197,6 @@
           <div class="place-links">
             <a class="btn-link" href="https://www.tortugalodge.com/" target="_blank">🌐 אתר הלודג'</a>
             <a class="btn-link" href="https://www.google.com/maps/search/?api=1&query=Miss+Junie%27s+Tortuguero" target="_blank">📍 Miss Junie's במפה</a>
-          </div>
-        </div>
-      </details>
-
-      <details class="place" id="place-terraza">
-        <summary>
-          <img class="thumb" src="img/terraza.jpg" alt="La Terraza at Nayara Gardens" loading="lazy">
-          <div class="place-head">
-            <span class="place-tag">24–26.9 · ארנאל</span>
-            <h4>La Terraza @ Nayara Gardens</h4>
-            <div class="place-sub">גריל לטיני מול הר הגעש · המסעדה הראשית של המלון</div>
-            <span class="price-chip">$60–90 לאדם</span>
-          </div>
-          <div class="chev">▼</div>
-        </summary>
-        <div class="place-body">
-          <img src="img/terraza.jpg" alt="" loading="lazy">
-          <dl>
-            <dt>מחירים (תפריט ערב)</dt><dd>סביצ'ה $18–28, ראשונות $16–32, עיקריות $24–40: קסאדו צמחוני $24, סנאפר קריבי $34, דג היום $39, תמנון $40.</dd>
-            <dt>צמחוני / דגים</dt><dd>סביצ'ה טבעוני, סלט לב דקל, קינואה, קסאדו צמחוני. דגים בכל ערב.</dd>
-            <dt>הערה</dt><dd>רשמית לאורחי המלון. הזמנה: reservations@nayararesorts.com</dd>
-          </dl>
-          <div class="place-links">
-            <a class="btn-link" href="https://nayaragardens.com/eat/" target="_blank">🌐 תפריטים</a>
-            <a class="btn-link" href="https://www.google.com/maps/search/?api=1&query=Nayara+Gardens+La+Fortuna" target="_blank">📍 Google Maps</a>
-          </div>
-        </div>
-      </details>
-
-      <details class="place" id="place-asialuna">
-        <summary>
-          <img class="thumb" src="img/asialuna.jpg" alt="Asia Luna at Nayara Gardens" loading="lazy">
-          <div class="place-head">
-            <span class="place-tag">24–26.9 · ארנאל</span>
-            <h4>Asia Luna @ Nayara Gardens</h4>
-            <div class="place-sub">אסייתי-לטיני, סושי ורובטה · אווירה של מסעדת שף</div>
-            <span class="price-chip">$55–85 לאדם</span>
-          </div>
-          <div class="chev">▼</div>
-        </summary>
-        <div class="place-body">
-          <img src="img/asialuna.jpg" alt="" loading="lazy">
-          <dl>
-            <dt>מחירים</dt><dd>רולים $18–20, פוקה $26, ווק $30–32, פאד תאי צמחוני $14, רובטה דגים לשניים $70, סירת סושי $90.</dd>
-            <dt>צמחוני / דגים</dt><dd>פאד תאי, ארוז פריטו, סושי ירקות, הרבה דג נא ובגריל.</dd>
-            <dt>הצעה</dt><dd>ערב אחד כאן, ערב אחד ב-La Terraza, וערב 26.9 ב-Don Rufino בעיירה.</dd>
-          </dl>
-          <div class="place-links">
-            <a class="btn-link" href="https://nayaragardens.com/eat/" target="_blank">🌐 תפריטים</a>
-            <a class="btn-link" href="https://www.google.com/maps/search/?api=1&query=Nayara+Gardens+La+Fortuna" target="_blank">📍 Google Maps</a>
           </div>
         </div>
       </details>
@@ -1280,7 +1301,7 @@
         </div>
       </details>
     </div>
-    <p class="sec-note">💡 לצהריים זולים: <b>Soda Víquez</b> בלה פורטונה (קסאדו צמחוני ₡4,000–5,000, כ-$9–11) ו<b>סודות</b> דומות בכל עיירה. ארוחה ב"סודה" עולה שליש ממסעדת מלון.</p>
+    <p class="sec-note">💡 רשימות אוכל מלאות לכל אזור נמצאות בבלוקים למעלה. לצהריים זולים: <b>Soda Víquez</b> בלה פורטונה (קסאדו צמחוני כ-$9–11) ו<b>סודות</b> דומות בכל עיירה.</p>
   </section>
 
   <!-- ================= BUDGET ================= -->
@@ -1289,39 +1310,39 @@
     <p class="sec-note">3 נוסעים, 11 ימים / 10 לילות, דולר אמריקאי. טווח נמוך = בחירות חסכוניות (Tabacón, שאטל משותף, סיורים בסיסיים). טווח גבוה = Nayara, הסעות פרטיות, כל התוספות. נגה (16) מתומחרת כמבוגרת בכל הסעיפים.</p>
 
     <div class="budget-hero">
-      <div class="stat"><div class="stat-label">🇨🇷 קוסטה ריקה, 11 ימים</div><div class="stat-value">$10,600–14,200</div><div class="stat-sub">ללא טיסות · $965–1,290 ליום</div></div>
+      <div class="stat"><div class="stat-label">🇨🇷 קוסטה ריקה, 11 ימים</div><div class="stat-value">$9,950–12,550</div><div class="stat-sub">ללא טיסות · $905–1,140 ליום</div></div>
       <div class="stat"><div class="stat-label">🇺🇸 ארה"ב, ~10 לילות</div><div class="stat-value">$13,700–15,000</div><div class="stat-sub">כולל טיסות $3,000 ובופר</div></div>
-      <div class="stat"><div class="stat-label">סה"כ הטיול</div><div class="stat-value">$24,300–29,200</div><div class="stat-sub">$8,100–9,750 לאדם</div></div>
+      <div class="stat"><div class="stat-label">סה"כ הטיול</div><div class="stat-value">$23,650–27,550</div><div class="stat-sub">$7,900–9,200 לאדם</div></div>
     </div>
 
     <div class="budget-card">
       <h3 class="sub-title" style="margin-top:0;">קוסטה ריקה: חלוקה לפי קטגוריה (אמצע הטווח)</h3>
       <div class="bars">
-        <div class="bar-row"><div class="bar-label">🏨 לינה</div><div class="bar-track"><div class="bar-fill" style="width:100%"></div></div><div class="bar-val">$6,850 <span>· 6,250–7,450</span></div></div>
-        <div class="bar-row"><div class="bar-label">🍽️ אוכל</div><div class="bar-track"><div class="bar-fill" style="width:29%"></div></div><div class="bar-val">$1,900 <span>· 1,500–2,300</span></div></div>
-        <div class="bar-row"><div class="bar-label">🎟️ סיורים ואטרקציות</div><div class="bar-track"><div class="bar-fill" style="width:34%"></div></div><div class="bar-val">$2,200 <span>· 1,750–2,700</span></div></div>
-        <div class="bar-row"><div class="bar-label">🚗 רכב, דלק והסעות</div><div class="bar-track"><div class="bar-fill" style="width:17%"></div></div><div class="bar-val">$1,150 <span>· 920–1,370</span></div></div>
-        <div class="bar-row"><div class="bar-label">🎁 טיפים ושונות</div><div class="bar-track"><div class="bar-fill" style="width:4%"></div></div><div class="bar-val">$275 <span>· 200–350</span></div></div>
+        <div class="bar-row"><div class="bar-label">🏨 לינה</div><div class="bar-track"><div class="bar-fill" style="width:100%"></div></div><div class="bar-val">$5,630 <span>· 5,430–5,830</span></div></div>
+        <div class="bar-row"><div class="bar-label">🍽️ אוכל</div><div class="bar-track"><div class="bar-fill" style="width:34%"></div></div><div class="bar-val">$1,900 <span>· 1,500–2,300</span></div></div>
+        <div class="bar-row"><div class="bar-label">🎟️ סיורים ואטרקציות</div><div class="bar-track"><div class="bar-fill" style="width:41%"></div></div><div class="bar-val">$2,300 <span>· 1,900–2,700</span></div></div>
+        <div class="bar-row"><div class="bar-label">🚗 רכב, דלק והסעות</div><div class="bar-track"><div class="bar-fill" style="width:20%"></div></div><div class="bar-val">$1,150 <span>· 920–1,370</span></div></div>
+        <div class="bar-row"><div class="bar-label">🎁 טיפים ושונות</div><div class="bar-track"><div class="bar-fill" style="width:5%"></div></div><div class="bar-val">$275 <span>· 200–350</span></div></div>
       </div>
     </div>
 
     <details class="budget-group" open>
-      <summary><span>🏨 לינה</span><span class="grp-total">$6,250–7,450</span></summary>
+      <summary><span>🏨 לינה</span><span class="grp-total">$5,430–5,830</span></summary>
       <div class="tbl-wrap"><table class="budget-tbl">
         <thead><tr><th>פריט</th><th>לילות</th><th>נמוך</th><th>גבוה</th><th>הערות</th></tr></thead>
         <tbody>
           <tr><td><a href="#place-marriott">Marriott Hacienda Belén</a></td><td>1</td><td>$230</td><td>$320</td><td>כולל מע"מ. Hampton במקום: $115–150</td></tr>
           <tr><td><a href="#place-tortuga">Tortuga Lodge, Full Experience</a></td><td>2</td><td>$3,040</td><td>$3,040</td><td>✔ הוזמן: Miss Perla King + Miss Evelyn (2 חדרים), NR, $3,010 + דמי שימור $30</td></tr>
-          <tr><td><a href="#place-nayara">Nayara Gardens</a></td><td>3</td><td>$1,900</td><td>$2,700</td><td>Tabacón במקום: $1,300–1,800</td></tr>
+          <tr><td><a href="#place-kelja">Arenal Keljá, וילה</a></td><td>3</td><td>$1,079</td><td>$1,079</td><td>✔ הוזמן ב-Airbnb, כולל מסים ועמלות. ללא ארוחת בוקר ומעיינות</td></tr>
           <tr><td><a href="#place-cusinga">La Cusinga Eco Lodge</a></td><td>3</td><td>$680</td><td>$950</td><td>כולל מע"מ וארוחת בוקר</td></tr>
           <tr><td><a href="#place-rosablanca">Finca Rosa Blanca</a></td><td>1</td><td>$400</td><td>$440</td><td>מחירון 2026 + אדם שלישי</td></tr>
-          <tr class="sum"><td>סה"כ</td><td>10</td><td>$6,250</td><td>$7,450</td><td>עם Hampton + Tabacón: כ-$5,500–6,400</td></tr>
+          <tr class="sum"><td>סה"כ</td><td>10</td><td>$5,430</td><td>$5,830</td><td>2 מתוך 4 מקומות כבר הוזמנו</td></tr>
         </tbody>
       </table></div>
     </details>
 
     <details class="budget-group">
-      <summary><span>🎟️ סיורים ואטרקציות (ל-3)</span><span class="grp-total">$1,750–2,700</span></summary>
+      <summary><span>🎟️ סיורים ואטרקציות (ל-3)</span><span class="grp-total">$1,900–2,700</span></summary>
       <div class="tbl-wrap"><table class="budget-tbl">
         <thead><tr><th>פריט</th><th>יום</th><th>נמוך</th><th>גבוה</th><th>מחיר לאדם ומקור</th></tr></thead>
         <tbody>
@@ -1334,7 +1355,7 @@
           <tr><td>הליכת לילה, Arenal Oasis</td><td>5</td><td>$170</td><td>$170</td><td>$56 (ברכב שלנו)</td></tr>
           <tr><td>Sky Trek zipline (כולל Sky Tram)</td><td>6</td><td>$250</td><td>$280</td><td>$93, הנחת EARLYBIRD 10% בהזמנה 15+ יום מראש</td></tr>
           <tr><td>Proyecto Asís</td><td>6</td><td>$120</td><td>$180</td><td>$40 סיור / $60 סיור + התנדבות</td></tr>
-          <tr><td>מעיינות חמים Tabacón (יום)</td><td>4</td><td>$0</td><td>$300</td><td>$99 לאדם. $0 אם לנים ב-Tabacón</td></tr>
+          <tr><td>מעיינות חמים (ערב 24.9)</td><td>4</td><td>$170</td><td>$300</td><td>Ecotermales ~$55 / Tabacón $99 לאדם. ערב Tabacón עם ארוחה $168 לאדם (מחליף ארוחת ערב)</td></tr>
           <tr><td>שביל הלבה Arenal 1968 (אופציונלי)</td><td>5/7</td><td>$0</td><td>$75</td><td>$25</td></tr>
           <tr><td>שייט לווייתנים ודולפינים, אוביטה</td><td>8</td><td>$240</td><td>$255</td><td>$78–85 (Bahía Aventuras / Ballena Tour), כולל כניסה לפארק</td></tr>
           <tr><td>מפלי נאוויאקה</td><td>9</td><td>$35</td><td>$96</td><td>$10 הליכה + $5 חניה / $32 בטנדר 4x4</td></tr>
@@ -1342,7 +1363,7 @@
           <tr><td>סיור קפה Finca Rosa Blanca</td><td>11</td><td>$120</td><td>$120</td><td>$40</td></tr>
           <tr><td>הר געש פואס (או גן Lankester)</td><td>11</td><td>$55</td><td>$55</td><td>$17 + חניה. חובה לשריין מראש ב-SINAC</td></tr>
           <tr><td>שייט תנינים בטארקולס (אופציונלי)</td><td>7</td><td>$0</td><td>$105</td><td>הגשר חינם. שייט $35</td></tr>
-          <tr class="sum"><td>סה"כ</td><td></td><td>$1,739</td><td>$2,702</td><td></td></tr>
+          <tr class="sum"><td>סה"כ</td><td></td><td>$1,909</td><td>$2,702</td><td></td></tr>
         </tbody>
       </table></div>
     </details>
@@ -1417,9 +1438,9 @@
       <h3 class="sub-title" style="margin-top:0;">🔍 תובנות</h3>
       <ul class="insights">
         <li><b>טורטוגרו הוזמן:</b> שני חדרים ב-Full Experience לא-ניתן-לביטול, $3,040 כולל דמי שימור. כ-$700 יותר מחדר משפחתי אחד, תמורת פרטיות לנגה, נוף לתעלה ושני עיסויים. הסעות וסיור הצבים עדיין לא כלולים.</li>
-        <li><b>ההחלטה השנייה בגודלה: Nayara או Tabacón.</b> הפרש של $600–900 לשלושה לילות, ו-Tabacón גם מבטל את כרטיסי המעיינות ($300). סה"כ עד $1,200 הפרש.</li>
-        <li><b>הלילה הראשון:</b> Hampton במקום Marriott חוסך $120–170 על לילה של 8 שעות.</li>
-        <li><b>שלושת הסעיפים האלה יחד</b> הם רוב ההבדל בין הטווח הנמוך לגבוה. כל השאר (סיורים, אוכל, רכב) משתנה מעט. החלק האמריקאי ($13,700–15,000 כולל טיסות ובופר) בטבלה נפרדת.</li>
+        <li><b>ארנאל הוזמן:</b> וילה ב-Arenal Keljá ב-$1,079, כ-$800–1,600 פחות מ-Nayara, עם חדר שינה נפרד לנגה. המחיר האמיתי כולל ערב מעיינות ($170–300) וקניות לארוחות בוקר.</li>
+        <li><b>הלילה הראשון:</b> ממתין להצעת Böëna על Grano de Oro (~$350–390). Courtyard / Hampton עם קינג + ספה נפתחת חוסכים כ-$200.</li>
+        <li><b>מה שנשאר פתוח בקוסטה ריקה:</b> לילה ראשון, אוביטה, Rosa Blanca, ההסעות וההשכרה. החלק האמריקאי ($13,700–15,000 כולל טיסות ובופר) בטבלה נפרדת.</li>
         <li><b>מה לא בתקציב:</b> טיסות, ביטוח נסיעות, מזכרות, וסיור צבים ב-$100 לאדם אם בוחרים את הגרסה של הלודג' (נספר בטווח הגבוה).</li>
         <li><b>הזמנות מוקדמות שחוסכות:</b> Sky Adventures 10% (EARLYBIRD, 15+ יום מראש), Adobe דרך האתר הישיר, פואס ומנואל אנטוניו רק אונליין ב-SINAC.</li>
       </ul>
@@ -1439,6 +1460,8 @@
     'flights': false,
     'tortuga': false,
     'arenal-hotel': false,
+    'kelja-followup': false,
+    'hot-springs': false,
     'uvita-hotel': false,
     'marriott': false,
     'ends-hotels': false,
